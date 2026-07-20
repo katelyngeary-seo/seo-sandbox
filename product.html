@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Product Test | SEO Sandbox</title>
+    <meta name="robots" content="index, follow">
+    
+    <!-- JSON-LD Product Schema for Testing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Experimental SEO Sandbox Widget",
+      "image": [
+        "https://seosandbox.dev/images/widget-front.jpg"
+      ],
+      "description": "A structural mock product designed purely for testing rich snippet rendering and crawler extraction accuracy.",
+      "sku": "SANDBOX-001",
+      "mpn": "SB-9999",
+      "brand": {
+        "@type": "Brand",
+        "name": "Sandbox Labs"
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "QA Tester"
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "12"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://seosandbox.dev/product.html",
+        "priceCurrency": "USD",
+        "price": "19.99",
+        "priceValidUntil": "2027-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+</head>
+<body>
+    <main style="font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px;">
+        <h1>Experimental SEO Sandbox Widget</h1>
+        <p><strong>Price:</strong> $19.99</p>
+        <p><strong>Status:</strong> In Stock</p>
+        <p>This is a mock product detail page used to test schema extraction efficiency and rich result presentation.</p>
+    </main>
+</body>
+</html>
