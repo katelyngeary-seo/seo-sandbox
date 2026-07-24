@@ -8,18 +8,18 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
     
     <!-- Primary Metadata -->
-    <title>Mock Product Group Test | SEO Sandbox Widgets</title>
-    <meta name="description" content="A structural mock product group page designed to test variant schema extraction, structured data properties, and crawler parsing efficiency.">
+    <title>Advanced SEO Sandbox Widget Series | Comprehensive Test Lab</title>
+    <meta name="description" content="An advanced structural mock product group page incorporating multi-variant product group schema, dynamic faceted canonicals, integrated FAQ graph items, and granular merchant return policies.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
-    <!-- Indexing & Canonical -->
+    <!-- Indexing & Canonical (Supports dynamic faceted query handling) -->
     <link rel="canonical" href="https://seosandbox.dev/product">
     
     <!-- Open Graph / Social Media Metadata -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="og:product">
-    <meta property="og:title" content="Experimental SEO Sandbox Widget Group">
-    <meta property="og:description" content="A structural mock product variant group page designed for testing schema extraction and rich result presentation.">
+    <meta property="og:title" content="Advanced SEO Sandbox Widget Series">
+    <meta property="og:description" content="An advanced structural mock product group test lab for schema extraction, dynamic faceted indexing, and rich result compliance.">
     <meta property="og:url" content="https://seosandbox.dev/product">
     <meta property="og:site_name" content="SEO Sandbox">
     <meta property="og:price:amount" content="19.99">
@@ -27,10 +27,10 @@
     
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Experimental SEO Sandbox Widget Group">
-    <meta name="twitter:description" content="A structural mock product variant group page designed for testing schema extraction and rich result presentation.">
+    <meta name="twitter:title" content="Advanced SEO Sandbox Widget Series">
+    <meta name="twitter:description" content="An advanced structural mock product group test lab for schema extraction, dynamic faceted indexing, and rich result compliance.">
 
-    <!-- Structured Data (Schema.org with Product Group / Variants) -->
+    <!-- Structured Data (Schema.org Graph: ProductGroup, FAQPage, BreadcrumbList, WebPage) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,7 +39,7 @@
           "@type": "ProductPage",
           "@id": "https://seosandbox.dev/product#webpage",
           "url": "https://seosandbox.dev/product",
-          "name": "Experimental SEO Sandbox Widget Group Page",
+          "name": "Advanced SEO Sandbox Widget Series Test Page",
           "isPartOf": {
             "@type": "WebSite",
             "@id": "https://seosandbox.dev/#website",
@@ -48,17 +48,21 @@
           },
           "breadcrumb": {
             "@id": "https://seosandbox.dev/product#breadcrumb"
+          },
+          "mainEntity": {
+            "@id": "https://seosandbox.dev/product#productgroup"
           }
         },
         {
           "@type": "ProductGroup",
           "@id": "https://seosandbox.dev/product#productgroup",
-          "name": "Experimental SEO Sandbox Widget Series",
-          "description": "A structural mock product group encompassing multiple variants for testing rich snippet rendering and variant extraction accuracy.",
-          "productGroupID": "SANDBOX-GROUP-01",
+          "name": "Advanced SEO Sandbox Widget Series",
+          "description": "A comprehensive structural test suite encompassing multi-attribute variants, dynamic return policies, inventory state simulations, and embedded FAQ schema.",
+          "productGroupID": "SANDBOX-GROUP-ADV-01",
           "variesBy": [
             "https://schema.org/color",
-            "https://schema.org/size"
+            "https://schema.org/size",
+            "https://schema.org/itemCondition"
           ],
           "brand": {
             "@type": "Brand",
@@ -67,17 +71,17 @@
           "hasVariant": [
             {
               "@type": "Product",
-              "@id": "https://seosandbox.dev/product#variant-standard",
+              "@id": "https://seosandbox.dev/product?color=yellow&size=standard#variant-standard",
               "name": "Experimental SEO Sandbox Widget - Standard / Yellow",
               "image": ["https://seosandbox.dev/images/widget-yellow.jpg"],
-              "description": "The standard baseline widget variant in classic sunflower yellow.",
+              "description": "The standard baseline widget variant in classic sunflower yellow with standard 30-day mail return policy.",
               "sku": "SANDBOX-001-STD",
               "mpn": "SB-9991",
               "color": "Yellow",
               "size": "Standard",
               "offers": {
                 "@type": "Offer",
-                "url": "https://seosandbox.dev/product",
+                "url": "https://seosandbox.dev/product?color=yellow&size=standard",
                 "priceCurrency": "USD",
                 "price": "19.99",
                 "priceValidUntil": "2027-12-31",
@@ -107,17 +111,17 @@
             },
             {
               "@type": "Product",
-              "@id": "https://seosandbox.dev/product#variant-pro",
+              "@id": "https://seosandbox.dev/product?color=matte-black&size=pro#variant-pro",
               "name": "Experimental SEO Sandbox Widget - Pro / Matte Black",
               "image": ["https://seosandbox.dev/images/widget-black.jpg"],
-              "description": "The high-throughput professional variant finished in matte black.",
+              "description": "The high-throughput professional variant finished in matte black featuring flexible kiosk drop-off returns.",
               "sku": "SANDBOX-002-PRO",
               "mpn": "SB-9992",
               "color": "Matte Black",
               "size": "Pro",
               "offers": {
                 "@type": "Offer",
-                "url": "https://seosandbox.dev/product",
+                "url": "https://seosandbox.dev/product?color=matte-black&size=pro",
                 "priceCurrency": "USD",
                 "price": "29.99",
                 "priceValidUntil": "2027-12-31",
@@ -127,8 +131,8 @@
                   "@type": "MerchantReturnPolicy",
                   "applicableCountry": "US",
                   "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                  "merchantReturnDays": 30,
-                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "merchantReturnDays": 60,
+                  "returnMethod": "https://schema.org/ReturnAtKiosk",
                   "returnFees": "https://schema.org/FreeReturn"
                 },
                 "shippingDetails": {
@@ -147,27 +151,29 @@
             },
             {
               "@type": "Product",
-              "@id": "https://seosandbox.dev/product#variant-enterprise",
-              "name": "Experimental SEO Sandbox Widget - Enterprise / Titanium",
+              "@id": "https://seosandbox.dev/product?color=titanium&size=enterprise#variant-enterprise",
+              "name": "Experimental SEO Sandbox Widget - Enterprise / Titanium (Pre-Order)",
               "image": ["https://seosandbox.dev/images/widget-titanium.jpg"],
-              "description": "The heavy-duty enterprise variant built for scale and extreme crawler stress-testing.",
+              "description": "The heavy-duty enterprise variant built for scale. Currently configured for pre-order stress-testing.",
               "sku": "SANDBOX-003-ENT",
               "mpn": "SB-9993",
               "color": "Titanium",
               "size": "Enterprise",
               "offers": {
                 "@type": "Offer",
-                "url": "https://seosandbox.dev/product",
+                "url": "https://seosandbox.dev/product?color=titanium&size=enterprise",
                 "priceCurrency": "USD",
                 "price": "49.99",
                 "priceValidUntil": "2027-12-31",
                 "itemCondition": "https://schema.org/NewCondition",
-                "availability": "https://schema.org/InStock",
+                "availability": "https://schema.org/PreOrder",
+                "availabilityStarts": "2026-08-01",
+                "validFrom": "2026-07-24",
                 "hasMerchantReturnPolicy": {
                   "@type": "MerchantReturnPolicy",
                   "applicableCountry": "US",
                   "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                  "merchantReturnDays": 30,
+                  "merchantReturnDays": 90,
                   "returnMethod": "https://schema.org/ReturnByMail",
                   "returnFees": "https://schema.org/FreeReturn"
                 },
@@ -183,6 +189,36 @@
                     "addressCountry": "US"
                   }
                 }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://seosandbox.dev/product#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do dynamic facet parameters interact with the canonical tag?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Faceted URLs (e.g., ?color=matte-black) maintain self-referencing or consolidated canonical tags pointing back to the main product group URL depending on indexing test parameters, preventing duplicate content dilution across crawler bots."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between standard and enterprise return policies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard variants feature a 30-day mail return window, Pro variants include 60-day kiosk drop-offs, and Enterprise pre-orders support an extended 90-day evaluation window."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does the pre-order inventory state function in structured data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pre-order offers utilize the PreOrder availability attribute alongside availabilityStarts and validFrom timestamps to communicate upcoming inventory release schedules accurately to search indexers."
               }
             }
           ]
@@ -217,7 +253,7 @@
         }
         body {
             line-height: 1.6;
-            max-width: 650px;
+            max-width: 680px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -251,10 +287,30 @@
             font-weight: 500;
         }
         h1 { font-weight: 700; margin-top: 0; }
+        h2 { font-size: 1.25rem; margin-top: 36px; border-bottom: 1px solid #eff2f5; padding-bottom: 8px; }
+        .facet-controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .facet-btn {
+            background-color: #f1f3f5;
+            border: 1px solid #dcedfd;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            color: #0070f3;
+        }
+        .facet-btn:hover {
+            background-color: #e2e8f0;
+            text-decoration: underline;
+        }
         .variant-grid {
             display: grid;
             gap: 20px;
-            margin-top: 24px;
+            margin-top: 16px;
         }
         .variant-card {
             border: 1px solid #eff2f5;
@@ -265,6 +321,22 @@
         .variant-card h3 {
             margin: 0 0 8px 0;
             font-size: 1rem;
+        }
+        .faq-section {
+            margin-top: 40px;
+        }
+        .faq-item {
+            margin-bottom: 16px;
+        }
+        .faq-item h4 {
+            margin: 0 0 4px 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+        .faq-item p {
+            margin: 0;
+            color: #4a5568;
+            font-size: 0.9rem;
         }
         main a { color: #0070f3; text-decoration: none; }
         main a:hover { text-decoration: underline; }
@@ -285,31 +357,59 @@
             <span>/product</span>
         </div>
         
-        <h1>Experimental SEO Sandbox Widget Series</h1>
-        <p>This is a structured product group page demonstrating variant architecture using Google-preferred <code>ProductGroup</code> and nested <code>hasVariant</code> properties.</p>
+        <h1>Advanced SEO Sandbox Widget Series</h1>
+        <p>This test page combines multi-variant <code>ProductGroup</code> schema, query-string faceted navigation controls, granular return policies, inventory state simulations (In-Stock vs. Pre-Order), and integrated `FAQPage` markup within a unified JSON-LD graph.</p>
 
+        <!-- Faceted Navigation Simulation Controls -->
+        <div class="facet-controls" aria-label="Faceted Navigation Filters">
+            <a class="facet-btn" href="/product">All Variants</a>
+            <a class="facet-btn" href="/product?color=yellow&size=standard">Filter: Yellow / Standard</a>
+            <a class="facet-btn" href="/product?color=matte-black&size=pro">Filter: Matte Black / Pro</a>
+            <a class="facet-btn" href="/product?color=titanium&size=enterprise">Filter: Titanium / Enterprise</a>
+        </div>
+
+        <h2>Product Variants & Return Policies</h2>
         <div class="variant-grid">
             <div class="variant-card">
                 <h3>Standard / Yellow</h3>
-                <p><strong>SKU:</strong> SANDBOX-001-STD</p>
-                <p><strong>Price:</strong> $19.99 (In Stock)</p>
+                <p><strong>SKU:</strong> SANDBOX-001-STD | <strong>Status:</strong> <span style="color: #0070f3;">In Stock</span></p>
+                <p><strong>Price:</strong> $19.99</p>
+                <p><strong>Return Policy:</strong> Free 30-day return by mail.</p>
                 <p>The standard baseline widget variant in classic sunflower yellow.</p>
             </div>
 
             <div class="variant-card">
                 <h3>Pro / Matte Black</h3>
-                <p><strong>SKU:</strong> SANDBOX-002-PRO</p>
-                <p><strong>Price:</strong> $29.99 (In Stock)</p>
+                <p><strong>SKU:</strong> SANDBOX-002-PRO | <strong>Status:</strong> <span style="color: #0070f3;">In Stock</span></p>
+                <p><strong>Price:</strong> $29.99</p>
+                <p><strong>Return Policy:</strong> Free 60-day return at kiosk drop-off.</p>
                 <p>The high-throughput professional variant finished in matte black.</p>
             </div>
 
             <div class="variant-card">
                 <h3>Enterprise / Titanium</h3>
-                <p><strong>SKU:</strong> SANDBOX-003-ENT</p>
-                <p><strong>Price:</strong> $49.99 (In Stock)</p>
-                <p>The heavy-duty enterprise variant built for scale and extreme crawler stress-testing.</p>
+                <p><strong>SKU:</strong> SANDBOX-003-ENT | <strong>Status:</strong> <span style="color: #d97706;">Pre-Order (Ships Aug 1)</span></p>
+                <p><strong>Price:</strong> $49.99</p>
+                <p><strong>Return Policy:</strong> Free 90-day return window.</p>
+                <p>The heavy-duty enterprise variant configured for pre-order inventory stress-testing.</p>
             </div>
         </div>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4>How do dynamic facet parameters interact with the canonical tag?</h4>
+                <p>Faceted URLs maintain structured query handling while reinforcing canonical pathways back to the primary product group collection.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is the difference between standard and enterprise return policies?</h4>
+                <p>Return windows range from 30 days by mail up to 90 days, mapped dynamically via <code>MerchantReturnPolicy</code> schema nodes.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How does the pre-order inventory state function in structured data?</h4>
+                <p>Offers combine <code>PreOrder</code> availability strings with <code>availabilityStarts</code> timestamps for accurate SERP timeline parsing.</p>
+            </div>
+        </section>
     </main>
 </body>
 </html>
