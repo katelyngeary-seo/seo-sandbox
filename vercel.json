@@ -1,9 +1,5 @@
 {
-  "cleanUrls": true,
-  "routes": [
-    {
-      "src": "^/product/([^/]+)$",
-      "destination": "/product.html?variant=$1"
-    }
-  ]
+
+  "cleanUrls": true
+
 }
