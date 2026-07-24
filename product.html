@@ -3,16 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mock Product Test | SEO Sandbox</title>
-    <meta name="robots" content="index, follow">
+    
+    <!-- Primary Metadata -->
+    <title>Mock Product Test | SEO Sandbox Widget</title>
+    <meta name="description" content="A structural mock product page designed to test rich snippet rendering, JSON-LD schema extraction accuracy, and crawler parsing efficiency.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Indexing & Canonical -->
+    <link rel="canonical" href="https://seosandbox.dev/product">
+    
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="og:product">
+    <meta property="og:title" content="Experimental SEO Sandbox Widget">
+    <meta property="og:description" content="A structural mock product page designed for testing schema extraction and rich result presentation.">
+    <meta property="og:url" content="https://seosandbox.dev/product">
+    <meta property="og:site_name" content="SEO Sandbox">
+    <meta property="og:price:amount" content="19.99">
+    <meta property="og:price:currency" content="USD">
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Experimental SEO Sandbox Widget">
+    <meta name="twitter:description" content="A structural mock product page designed for testing schema extraction and rich result presentation.">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProductPage",
+          "@id": "https://seosandbox.dev/product#webpage",
+          "url": "https://seosandbox.dev/product",
+          "name": "Experimental SEO Sandbox Widget Page",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://seosandbox.dev/#website",
+            "url": "https://seosandbox.dev/",
+            "name": "SEO Sandbox"
+          },
+          "breadcrumb": {
+            "@id": "https://seosandbox.dev/product#breadcrumb"
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://seosandbox.dev/product#product",
+          "name": "Experimental SEO Sandbox Widget",
+          "image": [
+            "https://seosandbox.dev/images/widget-front.jpg"
+          ],
+          "description": "A structural mock product designed purely for testing rich snippet rendering and crawler extraction accuracy.",
+          "sku": "SANDBOX-001",
+          "mpn": "SB-9999",
+          "brand": {
+            "@type": "Brand",
+            "name": "Sandbox Labs"
+          },
+          "review": {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "QA Tester"
+            }
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "12"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://seosandbox.dev/product",
+            "priceCurrency": "USD",
+            "price": "19.99",
+            "priceValidUntil": "2027-12-31",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "hasMerchantReturnPolicy": {
+              "@type": "MerchantReturnPolicy",
+              "applicableCountry": "US",
+              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+              "merchantReturnDays": 30,
+              "returnMethod": "https://schema.org/ReturnByMail",
+              "returnFees": "https://schema.org/FreeReturn"
+            },
+            "shippingDetails": {
+              "@type": "OfferShippingDetails",
+              "shippingRate": {
+                "@type": "MonetaryAmount",
+                "value": "0.00",
+                "currency": "USD"
+              },
+              "shippingDestination": {
+                "@type": "DefinedRegion",
+                "addressCountry": "US"
+              }
+            }
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://seosandbox.dev/product#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://seosandbox.dev/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Schema / Product",
+              "item": "https://seosandbox.dev/product"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <style>
+        /* Forces everything on the page to use your clean homepage monospace style */
+        * {
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
+        }
         body {
-            font-family: ui-monospace, SFMono-Regular, SF Pro Mono, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
             line-height: 1.6;
             max-width: 600px;
             margin: 40px auto;
             padding: 0 20px;
-            color: #1a1a1a;
         }
         nav {
             display: flex;
@@ -20,49 +148,23 @@
             margin-bottom: 40px;
         }
         nav a {
-            color: #1a1a1a;
             text-decoration: none;
             font-weight: 500;
         }
         nav a:hover {
             text-decoration: underline;
         }
-        h1 { color: #111; font-weight: 700; margin-top: 0; }
+        h1 { font-weight: 700; margin-top: 0; }
+        main a { color: #0070f3; text-decoration: none; }
+        main a:hover { text-decoration: underline; }
     </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "Experimental SEO Sandbox Widget",
-      "image": ["https://seosandbox.dev/images/widget-front.jpg"],
-      "description": "A structural mock product designed purely for testing rich snippet rendering and crawler extraction accuracy.",
-      "sku": "SANDBOX-001",
-      "mpn": "SB-9999",
-      "brand": { "@type": "Brand", "name": "Sandbox Labs" },
-      "review": {
-        "@type": "Review",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "author": { "@type": "Person", "name": "QA Tester" }
-      },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12" },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://seosandbox.dev/product.html",
-        "priceCurrency": "USD",
-        "price": "19.99",
-        "priceValidUntil": "2027-12-31",
-        "itemCondition": "https://schema.org/NewCondition",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
 </head>
 <body>
     <header>
-        <nav>
+        <nav aria-label="Main Navigation">
             <a href="/">/home</a>
-            <a href="/about.html">/about</a>
-            <a href="/product.html">/schema</a>
+            <a href="/about">/about</a>
+            <a href="/product">/schema</a>
         </nav>
     </header>
 
