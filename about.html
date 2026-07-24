@@ -13,7 +13,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
     <!-- Indexing & Canonical -->
-    <link rel="canonical" href="https://www.seosandbox.dev/about">
+    <link rel="canonical" href="https://seosandbox.dev/about">
     
     <!-- Open Graph / Social Media Metadata -->
     <meta property="og:locale" content="en_US">
@@ -60,6 +60,9 @@
               "item": "https://seosandbox.dev/"
             }
           ]
+        }
+      ]
+    }
     </script>
 
     <style>
@@ -74,17 +77,22 @@
             margin: 40px auto;
             padding: 0 20px;
         }
-        nav {
+        .breadcrumbs {
             display: flex;
-            gap: 24px;
-            margin-bottom: 40px;
+            gap: 8px;
+            margin-bottom: 24px;
         }
-        nav a {
+        .breadcrumbs a {
+            color: #0070f3;
             text-decoration: none;
             font-weight: 500;
         }
-        nav a:hover {
+        .breadcrumbs a:hover {
             text-decoration: underline;
+        }
+        .breadcrumbs span {
+            color: #666;
+            font-weight: 500;
         }
         h1 { font-weight: 700; margin-top: 0; }
         main a { color: #0070f3; text-decoration: none; }
@@ -94,6 +102,11 @@
 <body>
 
     <main>
+        <div class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/">/home</a>
+            <span>/about</span>
+        </div>
+
         <h1>About This Site</h1>
         <p>Welcome! This is a live testing environment dedicated to experimenting with SEO frameworks, structured data properties, and crawler behaviors.</p>
         <p>If you have questions about the experiments running here or want to collaborate, feel free to connect with me on <a href="https://www.linkedin.com/in/katelyngeary/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
