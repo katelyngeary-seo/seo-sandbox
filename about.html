@@ -3,12 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | SEO Sandbox</title>
-    <meta name="robots" content="index, follow">
+    
+    <!-- Primary Metadata -->
+    <title>About The SEO Sandbox | Technical SEO & Structured Data Experiments</title>
+    <meta name="description" content="A live testing environment dedicated to experimenting with SEO frameworks, JSON-LD structured data properties, and search engine crawler behaviors.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Indexing & Canonical -->
+    <link rel="canonical" href="https://seosandbox.dev/about">
+    
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About The SEO Sandbox | Technical SEO Experiments">
+    <meta property="og:description" content="A live testing environment dedicated to experimenting with SEO frameworks, JSON-LD structured data properties, and search engine crawler behaviors.">
+    <meta property="og:url" content="https://seosandbox.dev/about">
+    <meta property="og:site_name" content="SEO Sandbox">
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About The SEO Sandbox | Technical SEO Experiments">
+    <meta name="twitter:description" content="A live testing environment dedicated to experimenting with SEO frameworks, JSON-LD structured data properties, and search engine crawler behaviors.">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "AboutPage",
+          "@id": "https://seosandbox.dev/about#webpage",
+          "url": "https://seosandbox.dev/about",
+          "name": "About The SEO Sandbox",
+          "description": "A live testing environment dedicated to experimenting with SEO frameworks, structured data properties, and crawler behaviors.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://seosandbox.dev/#website",
+            "url": "https://seosandbox.dev/",
+            "name": "SEO Sandbox"
+          },
+          "breadcrumb": {
+            "@id": "https://seosandbox.dev/about#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://seosandbox.dev/about#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://seosandbox.dev/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About",
+              "item": "https://seosandbox.dev/about"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <style>
         /* Forces everything on the page to use your clean homepage monospace style */
         * {
-            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
             color: #1a1a1a;
         }
         body {
@@ -36,17 +99,17 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav aria-label="Main Navigation">
             <a href="/">/home</a>
-            <a href="/about.html">/about</a>
-            <a href="/product.html">/schema</a>
+            <a href="/about">/about</a>
+            <a href="/product">/schema</a>
         </nav>
     </header>
 
     <main>
         <h1>About This Site</h1>
         <p>Welcome! This is a live testing environment dedicated to experimenting with SEO frameworks, structured data properties, and crawler behaviors.</p>
-        <p>If you have questions about the experiments running here or want to collaborate, feel free to connect with me on <a href="https://www.linkedin.com/in/katelyngeary/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        <p>If you have questions about the experiments running here or want to collaborate, feel free to connect with me on <a href="https://www.linkedin.com/in/katelyngeary/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
     </main>
 </body>
 </html>
