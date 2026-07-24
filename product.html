@@ -8,18 +8,18 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
     
     <!-- Primary Metadata -->
-    <title>Mock Product Test | SEO Sandbox Widget</title>
-    <meta name="description" content="A structural mock product page designed to test rich snippet rendering, JSON-LD schema extraction accuracy, and crawler parsing efficiency.">
+    <title>Mock Product Group Test | SEO Sandbox Widgets</title>
+    <meta name="description" content="A structural mock product group page designed to test variant schema extraction, structured data properties, and crawler parsing efficiency.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
     <!-- Indexing & Canonical -->
-    <link rel="canonical" href="https://www.seosandbox.dev/product">
+    <link rel="canonical" href="https://seosandbox.dev/product">
     
     <!-- Open Graph / Social Media Metadata -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="og:product">
-    <meta property="og:title" content="Experimental SEO Sandbox Widget">
-    <meta property="og:description" content="A structural mock product page designed for testing schema extraction and rich result presentation.">
+    <meta property="og:title" content="Experimental SEO Sandbox Widget Group">
+    <meta property="og:description" content="A structural mock product variant group page designed for testing schema extraction and rich result presentation.">
     <meta property="og:url" content="https://seosandbox.dev/product">
     <meta property="og:site_name" content="SEO Sandbox">
     <meta property="og:price:amount" content="19.99">
@@ -27,10 +27,10 @@
     
     <!-- Twitter Card Metadata -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Experimental SEO Sandbox Widget">
-    <meta name="twitter:description" content="A structural mock product page designed for testing schema extraction and rich result presentation.">
+    <meta name="twitter:title" content="Experimental SEO Sandbox Widget Group">
+    <meta name="twitter:description" content="A structural mock product variant group page designed for testing schema extraction and rich result presentation.">
 
-    <!-- Structured Data (Schema.org) -->
+    <!-- Structured Data (Schema.org with Product Group / Variants) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,7 +39,7 @@
           "@type": "ProductPage",
           "@id": "https://seosandbox.dev/product#webpage",
           "url": "https://seosandbox.dev/product",
-          "name": "Experimental SEO Sandbox Widget Page",
+          "name": "Experimental SEO Sandbox Widget Group Page",
           "isPartOf": {
             "@type": "WebSite",
             "@id": "https://seosandbox.dev/#website",
@@ -51,65 +51,141 @@
           }
         },
         {
-          "@type": "Product",
-          "@id": "https://seosandbox.dev/product#product",
-          "name": "Experimental SEO Sandbox Widget",
-          "image": [
-            "https://seosandbox.dev/images/widget-front.jpg"
+          "@type": "ProductGroup",
+          "@id": "https://seosandbox.dev/product#productgroup",
+          "name": "Experimental SEO Sandbox Widget Series",
+          "description": "A structural mock product group encompassing multiple variants for testing rich snippet rendering and variant extraction accuracy.",
+          "productGroupID": "SANDBOX-GROUP-01",
+          "variesBy": [
+            "https://schema.org/color",
+            "https://schema.org/size"
           ],
-          "description": "A structural mock product designed purely for testing rich snippet rendering and crawler extraction accuracy.",
-          "sku": "SANDBOX-001",
-          "mpn": "SB-9999",
           "brand": {
             "@type": "Brand",
             "name": "Sandbox Labs"
           },
-          "review": {
-            "@type": "Review",
-            "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": "5",
-              "bestRating": "5"
+          "hasVariant": [
+            {
+              "@type": "Product",
+              "@id": "https://seosandbox.dev/product#variant-standard",
+              "name": "Experimental SEO Sandbox Widget - Standard / Yellow",
+              "image": ["https://seosandbox.dev/images/widget-yellow.jpg"],
+              "description": "The standard baseline widget variant in classic sunflower yellow.",
+              "sku": "SANDBOX-001-STD",
+              "mpn": "SB-9991",
+              "color": "Yellow",
+              "size": "Standard",
+              "offers": {
+                "@type": "Offer",
+                "url": "https://seosandbox.dev/product",
+                "priceCurrency": "USD",
+                "price": "19.99",
+                "priceValidUntil": "2027-12-31",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availability": "https://schema.org/InStock",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "applicableCountry": "US",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 30,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0.00",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  }
+                }
+              }
             },
-            "author": {
-              "@type": "Person",
-              "name": "QA Tester"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "12"
-          },
-          "offers": {
-            "@type": "Offer",
-            "url": "https://seosandbox.dev/product",
-            "priceCurrency": "USD",
-            "price": "19.99",
-            "priceValidUntil": "2027-12-31",
-            "itemCondition": "https://schema.org/NewCondition",
-            "availability": "https://schema.org/InStock",
-            "hasMerchantReturnPolicy": {
-              "@type": "MerchantReturnPolicy",
-              "applicableCountry": "US",
-              "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-              "merchantReturnDays": 30,
-              "returnMethod": "https://schema.org/ReturnByMail",
-              "returnFees": "https://schema.org/FreeReturn"
+            {
+              "@type": "Product",
+              "@id": "https://seosandbox.dev/product#variant-pro",
+              "name": "Experimental SEO Sandbox Widget - Pro / Matte Black",
+              "image": ["https://seosandbox.dev/images/widget-black.jpg"],
+              "description": "The high-throughput professional variant finished in matte black.",
+              "sku": "SANDBOX-002-PRO",
+              "mpn": "SB-9992",
+              "color": "Matte Black",
+              "size": "Pro",
+              "offers": {
+                "@type": "Offer",
+                "url": "https://seosandbox.dev/product",
+                "priceCurrency": "USD",
+                "price": "29.99",
+                "priceValidUntil": "2027-12-31",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availability": "https://schema.org/InStock",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "applicableCountry": "US",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 30,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0.00",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  }
+                }
+              }
             },
-            "shippingDetails": {
-              "@type": "OfferShippingDetails",
-              "shippingRate": {
-                "@type": "MonetaryAmount",
-                "value": "0.00",
-                "currency": "USD"
-              },
-              "shippingDestination": {
-                "@type": "DefinedRegion",
-                "addressCountry": "US"
+            {
+              "@type": "Product",
+              "@id": "https://seosandbox.dev/product#variant-enterprise",
+              "name": "Experimental SEO Sandbox Widget - Enterprise / Titanium",
+              "image": ["https://seosandbox.dev/images/widget-titanium.jpg"],
+              "description": "The heavy-duty enterprise variant built for scale and extreme crawler stress-testing.",
+              "sku": "SANDBOX-003-ENT",
+              "mpn": "SB-9993",
+              "color": "Titanium",
+              "size": "Enterprise",
+              "offers": {
+                "@type": "Offer",
+                "url": "https://seosandbox.dev/product",
+                "priceCurrency": "USD",
+                "price": "49.99",
+                "priceValidUntil": "2027-12-31",
+                "itemCondition": "https://schema.org/NewCondition",
+                "availability": "https://schema.org/InStock",
+                "hasMerchantReturnPolicy": {
+                  "@type": "MerchantReturnPolicy",
+                  "applicableCountry": "US",
+                  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                  "merchantReturnDays": 30,
+                  "returnMethod": "https://schema.org/ReturnByMail",
+                  "returnFees": "https://schema.org/FreeReturn"
+                },
+                "shippingDetails": {
+                  "@type": "OfferShippingDetails",
+                  "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0.00",
+                    "currency": "USD"
+                  },
+                  "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "US"
+                  }
+                }
               }
             }
-          }
+          ]
         },
         {
           "@type": "BreadcrumbList",
@@ -141,7 +217,7 @@
         }
         body {
             line-height: 1.6;
-            max-width: 600px;
+            max-width: 650px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -157,7 +233,39 @@
         nav a:hover {
             text-decoration: underline;
         }
+        .breadcrumbs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        .breadcrumbs a {
+            color: #0070f3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumbs span {
+            color: #606f7b;
+            font-weight: 500;
+        }
         h1 { font-weight: 700; margin-top: 0; }
+        .variant-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 24px;
+        }
+        .variant-card {
+            border: 1px solid #eff2f5;
+            padding: 16px;
+            border-radius: 6px;
+            background-color: #f8fafc;
+        }
+        .variant-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1rem;
+        }
         main a { color: #0070f3; text-decoration: none; }
         main a:hover { text-decoration: underline; }
     </style>
@@ -172,10 +280,36 @@
     </header>
 
     <main>
-        <h1>Experimental SEO Sandbox Widget</h1>
-        <p><strong>Price:</strong> $19.99</p>
-        <p><strong>Status:</strong> In Stock</p>
-        <p>This is a mock product detail page used to test schema extraction efficiency and rich result presentation.</p>
+        <div class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/">/home</a>
+            <span>/product</span>
+        </div>
+        
+        <h1>Experimental SEO Sandbox Widget Series</h1>
+        <p>This is a structured product group page demonstrating variant architecture using Google-preferred <code>ProductGroup</code> and nested <code>hasVariant</code> properties.</p>
+
+        <div class="variant-grid">
+            <div class="variant-card">
+                <h3>Standard / Yellow</h3>
+                <p><strong>SKU:</strong> SANDBOX-001-STD</p>
+                <p><strong>Price:</strong> $19.99 (In Stock)</p>
+                <p>The standard baseline widget variant in classic sunflower yellow.</p>
+            </div>
+
+            <div class="variant-card">
+                <h3>Pro / Matte Black</h3>
+                <p><strong>SKU:</strong> SANDBOX-002-PRO</p>
+                <p><strong>Price:</strong> $29.99 (In Stock)</p>
+                <p>The high-throughput professional variant finished in matte black.</p>
+            </div>
+
+            <div class="variant-card">
+                <h3>Enterprise / Titanium</h3>
+                <p><strong>SKU:</strong> SANDBOX-003-ENT</p>
+                <p><strong>Price:</strong> $49.99 (In Stock)</p>
+                <p>The heavy-duty enterprise variant built for scale and extreme crawler stress-testing.</p>
+            </div>
+        </div>
     </main>
 </body>
 </html>
