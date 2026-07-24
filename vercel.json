@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "routes": [
     {
-      "src": "/product/(?<variant>[^/]+)",
+      "src": "^/product/([^/]+)$",
       "destination": "/product.html?variant=$1"
     }
   ]
