@@ -1,2 +1,66 @@
+# Standard Crawl Access: Allow all crawlers and AI bots site-wide
 User-agent: *
+Allow: /
+
+# Declarative Content Signals for AI and Search Systems
+Content-Signal: search=yes, ai-input=yes, ai-train=yes, use=full
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: OIMG-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+
+# Google & DeepMind
+User-agent: Googlebot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Meta
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft / Bing
+User-agent: Bingbot
+Allow: /
+User-agent: Copilot
+Allow: /
+
+# Other Major AI / Search Crawlers
+User-agent: Amazonbot
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: Diffbot
+Allow: /
+User-agent: Cohere-ai
+Allow: /
+User-agent: YouBot
 Allow: /
