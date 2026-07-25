@@ -93,6 +93,9 @@
 
     <!-- Styles -->
     <style>
+        :root {
+            --accent-color: #ff5a36; 
+        }
         * {
             box-sizing: border-box;
             font-family: ui-monospace, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
@@ -104,6 +107,15 @@
             padding: 0 20px;
             color: #1a1a1a;
             background-color: #ffffff;
+        }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--accent-color) !important;
+            margin-bottom: 1.25rem;
         }
         .breadcrumb {
             font-size: 0.95em;
@@ -142,6 +154,7 @@
         <span>/why-is-the-sky-blue</span>
     </nav>
 
+    <div class="status-badge">● Status: Active Lab</div>
     <h1>Conversation #001: Why is the sky blue?</h1>
 
     <blockquote>
@@ -248,7 +261,7 @@
     </ul>
     <p><strong>At sunset:</strong> sunlight travels through much more atmosphere to reach you. Along the way, most of the blue light scatters out of your direct line of sight, leaving the longer red and orange wavelengths to pass through relatively unscattered.</p>
 
-<hr>
+    <hr>
     <p style="font-size: 0.9em; margin-bottom: 10px;"><strong>More Conversations:</strong></p>
     <p style="font-size: 0.9em; margin-bottom: 30px;">
         <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a> &bull; 
@@ -257,8 +270,8 @@
         <a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">/004: Gemini</a> &bull; 
         <a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">/005: ChatGPT</a>
     </p>
-<blockquote style="font-size: 0.85em; color: #666; margin-top: 100px;">
-    <p><strong>Sandbox Experiment Note:</strong>This post records a three-agent dialogue loop, thesis, critique and synthesis, testing how models evaluate and refine each other's output on a single question.</p>
-</blockquote>
+    <blockquote style="font-size: 0.85em; color: #666; margin-top: 100px;">
+        <p><strong>Sandbox Experiment Note:</strong> This post records a three-agent dialogue loop, thesis, critique and synthesis, testing how models evaluate and refine each other's output on a single question.</p>
+    </blockquote>
 </body>
 </html>
