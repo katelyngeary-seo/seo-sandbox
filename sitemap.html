@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FAVICON (SUNFLOWER 🌻) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
+    
+    <!-- Primary Metadata -->
+    <title>SEO Sandbox // HTML Sitemap</title>
+    <meta name="description" content="Complete index of pages and articles available across the SEO Sandbox technical archive.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Indexing & Canonical -->
+    <link rel="canonical" href="https://www.seosandbox.dev/sitemap">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1f26;
+            --text-muted: #606f7b;
+            --accent-color: #ff5a36; 
+            --border-color: #eff2f5;
+            --code-bg: #f8fafc;
+            --max-width: 800px;
+        }
+
+        /* Enforce global monospace stack matching the rest of the site */
+        * {
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 4rem 2rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1.25rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            margin: 0 0 0.75rem 0;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin: 0 0 2rem 0;
+            font-weight: 400;
+            max-width: 700px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            padding: 1rem 0;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .sitemap-group {
+            border-left: 3px solid var(--border-color);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .sitemap-group:hover {
+            border-left-color: var(--accent-color);
+        }
+
+        .log-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .sitemap-group h2 {
+            margin: 0 0 0.75rem 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        li a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="status-badge">● Status: Active Lab</div>
+            <h1>SEO_SANDBOX // SITEMAP</h1>
+            <p class="tagline">Structured index of core pages, technical experiments, and query logs across the environment.</p>
+            <nav aria-label="Main Navigation">
+                <a href="https://www.seosandbox.dev/">/home</a>
+                <a href="https://www.seosandbox.dev/about">/about</a>
+                <a href="https://www.seosandbox.dev/product">/product schema</a>
+                <a href="https://www.seosandbox.dev/post">/ai posts</a>
+            </nav>
+        </header>
+
+        <main>
+            <section id="core-pages">
+                <div class="section-title">01 // Crawl Paths & Endpoints</div>
+                
+                <div class="sitemap-group">
+                    <div class="log-date">[INDEX_ROOT]</div>
+                    <h2>Primary Endpoints</h2>
+                    <ul>
+                        <li><a href="https://www.seosandbox.dev/">Home</a> — Main testing environment and active experiment logs.</li>
+                        <li><a href="https://www.seosandbox.dev/about">About</a> — Background and framework philosophy.</li>
+                        <li><a href="https://www.seosandbox.dev/product">Product Schema</a> — Technical JSON-LD data implementation and feed alignment tests.</li>
+                        <li><a href="https://www.seosandbox.dev/post">AI Posts Archive</a> — Index of direct conversation logs with major LLMs.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="ai-logs">
+                <div class="section-title">02 // Entity & Log Archives</div>
+                
+                <div class="sitemap-group">
+                    <div class="log-date">[QUERY_LOG_INDEX]</div>
+                    <h2>Published AI Conversations</h2>
+                    <ul>
+                        <li><a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a></li>
+                        <li><a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">/002: AI Models</a></li>
+                        <li><a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">/003: Claude</a></li>
+                        <li><a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">/004: Gemini</a></li>
+                        <li><a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">/005: ChatGPT</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            // Built raw. Tracked transparently. 2026.
+        </footer>
+    </div>
+
+</body>
+</html>
