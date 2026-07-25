@@ -1,5 +1,10 @@
 {
-
-  "cleanUrls": true
-
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/post/",
+      "destination": "/post",
+      "statusCode": 301
+    }
+  ]
 }
