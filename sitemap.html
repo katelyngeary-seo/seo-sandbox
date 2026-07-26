@@ -181,12 +181,15 @@
         /* Enforce global monospace stack matching the rest of the site */
         * {
             font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-            color: #1a1a1a;
+        }
+
+        /* Explicitly target all text elements to prevent color override */
+        body, h1, h2, h3, h4, h5, h6, p, span, a, li, div, footer, nav {
+            color: var(--text-color);
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
             line-height: 1.6;
             margin: 0;
             padding: 4rem 2rem;
@@ -232,8 +235,13 @@
             max-width: 700px;
         }
 
+        nav {
+            display: block;
+            margin-top: 1rem;
+        }
+
         nav a {
-            color: #0070f3;
+            color: #0070f3 !important;
             text-decoration: none;
             margin-right: 2rem;
             font-weight: 600;
@@ -293,7 +301,7 @@
         }
 
         li a {
-            color: #0070f3;
+            color: #0070f3 !important;
             text-decoration: none;
             font-weight: 600;
         }
