@@ -1,0 +1,33 @@
+# SEO Sandbox // Technical Architecture & AI Visibility Archive
+
+> An execution-first, zero-fluff testing environment isolating variables across traditional search, GEO and AEO. Built by Katelyn Geary to observe how crawlers, bots and LLMs parse raw DOM structures, technical hygiene and structured data entity relationships.
+
+## Core Documentation & Lab Infrastructure
+- [About](https://www.seosandbox.dev/about): Author background, professional philosophy, and technical credentials of Katelyn Geary, focusing on e-commerce SEO and GEO strategy.
+- [Product Schema](https://www.seosandbox.dev/product): Advanced JSON-LD architecture, entity nesting, and Google Merchant Center data alignment experiments designed to track technical data synchronization.
+- [AI Posts Index](https://www.seosandbox.dev/post): Master index of unedited conversation logs, cross-model analysis, and self-representation tests across major LLMs.
+
+## Complete Log Archive (AI Conversations & Technical Analysis)
+
+### Baseline & Self-Reflection
+- [/001: Blue Sky Experiment](https://www.seosandbox.dev/post/why-is-the-sky-blue): Baseline query tracking how models handle fundamental factual rendering and structural formatting.
+- [/002: AI Models on Each Other](https://www.seosandbox.dev/post/what-ai-models-think-of-each-other): Cross-model comparative analysis of systemic biases and architectural perceptions.
+- [/003: Claude on Itself](https://www.seosandbox.dev/post/what-claude-thinks-about-itself): Unedited dialogue investigating Claude's self-representation and operational framing.
+- [/004: Gemini on Itself](https://www.seosandbox.dev/post/what-gemini-thinks-about-itself): Direct prompt log capturing Gemini's internal evaluation of its capabilities and boundaries.
+- [/005: ChatGPT on Itself](https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself): Self-referential conversation log isolating OpenAI model framing.
+- [/006: Being Human](https://www.seosandbox.dev/post/does-ai-think-about-being-human): Philosophical boundary testing exploring how LLMs contextualize consciousness and human traits.
+
+### Perspectives on Search & SEO Practice
+- [/007: Claude on SEO Mistakes](https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong): Critical analysis from Claude regarding where traditional optimization strategies fail in modern search environments.
+- [/008: Gemini on SEO Mistakes](https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong): Gemini's diagnostic breakdown of common technical and strategic missteps made by search professionals.
+- [/009: ChatGPT on SEO Mistakes](https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong): ChatGPT evaluation of outdated optimization tactics versus modern technical requirements.
+
+### Core LLM Insights for Search Practitioners
+- [/010: Claude on LLM Mechanics](https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms): Fundamental architectural truths Claude emphasizes for anyone building visibility in generative search.
+- [/011: Gemini on LLM Mechanics](https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms): Core technical insights from Gemini regarding retrieval, parsing, and context windows.
+- [/012: ChatGPT on LLM Mechanics](https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms): Essential takeaways from ChatGPT on how generative models evaluate authority and relevance.
+
+## Technical Parameters & Directives
+- **Hosting Infrastructure:** Static HTML/CSS architecture deployed via Vercel edge routing.
+- **Data Hygiene:** Zero reliance on third-party tracking bloat, heavy client-side JavaScript frameworks, or black-box CMS plugins.
+- **Index Optimization:** Enforced clean canonical structures, strict trailing slash normalization via edge redirects (301 status codes), and explicit schema entity relationships.
