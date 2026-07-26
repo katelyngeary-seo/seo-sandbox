@@ -75,3 +75,6 @@ User-agent: Cohere-ai
 Allow: /
 User-agent: YouBot
 Allow: /
+
+
+Sitemap: https://www.seosandbox.dev/sitemap.xml
