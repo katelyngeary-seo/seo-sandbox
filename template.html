@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FAVICON (SUNFLOWER 🌻) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
+    
+    <!-- Primary Metadata -->
+    <title>Universal Component Template | SEO Sandbox</title>
+    <meta name="description" content="A lightweight, reusable header component template designed for consistent entity-reinforcing internal linking across all sandbox pages.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <link rel="canonical" href="https://www.seosandbox.dev/template">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1f26;
+            --text-muted: #606f7b;
+            --accent-color: #ff5a36; 
+            --border-color: #eff2f5;
+            --code-bg: #f8fafc;
+            --max-width: 680px;
+        }
+
+        /* Universal monospace styling matching the design system */
+        * {
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
+        }
+        body {
+            line-height: 1.6;
+            max-width: var(--max-width);
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Reusable Universal Header Component Styles */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .site-header nav {
+            display: flex;
+            gap: 16px;
+        }
+        .site-header a {
+            color: #0070f3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .site-header a:hover {
+            text-decoration: underline;
+        }
+
+        h1 { font-weight: 700; margin-top: 0; font-size: 1.4rem; }
+        h2 { font-size: 1.15rem; margin-top: 36px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        code {
+            font-size: 0.85rem;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- UNIVERSAL HEADER COMPONENT -->
+        <header class="site-header">
+            <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
+            <nav>
+                <a href="/about">/about</a>
+                <a href="/product">/lab</a>
+            </nav>
+        </header>
+
+        <h1>Universal Header Component</h1>
+        <p>Drop this lightweight snippet into the top of every page layout to maintain consistent sitewide navigation and permanent entity reinforcement back to your core profile and schema lab.</p>
+
+        <h2>HTML Snippet</h2>
+        <pre><code>&lt;header class="site-header"&gt;
+    &lt;a href="https://www.seosandbox.dev/"&gt;&lt;strong&gt;seo sandbox&lt;/strong&gt;&lt;/a&gt;
+    &lt;nav&gt;
+        &lt;a href="/about"&gt;/about&lt;/a&gt;
+        &lt;a href="/product"&gt;/lab&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+        <h2>CSS Block</h2>
+        <pre><code>.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+.site-header nav {
+    display: flex;
+    gap: 16px;
+}
+.site-header a {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: 500;
+}
+.site-header a:hover {
+    text-decoration: underline;
+}</code></pre>
+    </main>
+</body>
+</html>
