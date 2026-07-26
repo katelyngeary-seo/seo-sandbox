@@ -52,13 +52,13 @@
           "itemListElement": [
             {
               "@type": "ListItem",
-              "position": 1,
+              "@position": 1,
               "name": "home",
               "item": "https://www.seosandbox.dev/"
             },
             {
               "@type": "ListItem",
-              "position": 2,
+              "@position": 2,
               "name": "posts",
               "item": "https://www.seosandbox.dev/post"
             }
@@ -75,15 +75,36 @@
         }
         * {
             box-sizing: border-box;
-            font-family: ui-monospace, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
         }
         body {
             line-height: 1.6;
             max-width: 800px;
             margin: 40px auto;
             padding: 0 20px;
-            color: #1a1a1a;
             background-color: #ffffff;
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eff2f5;
+        }
+        .site-header nav {
+            display: flex;
+            gap: 16px;
+        }
+        .site-header a {
+            color: #0070f3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .site-header a:hover {
+            text-decoration: underline;
         }
         .status-badge {
             display: inline-block;
@@ -106,6 +127,9 @@
         .breadcrumb a:hover {
             text-decoration: underline;
         }
+        .breadcrumb .current {
+            color: #666;
+        }
         hr {
             margin: 30px 0;
             border: 0;
@@ -113,6 +137,7 @@
         }
         .subtitle {
             font-size: 0.9em;
+            color: #606f7b;
         }
         blockquote {
             background: #f4f4f4;
@@ -131,7 +156,7 @@
             margin-bottom: 10px;
         }
         a {
-            color: #0066cc;
+            color: #0070f3;
             text-decoration: none;
         }
         a:hover {
@@ -140,40 +165,62 @@
         h1, h2, h3, h4 {
             color: #000000;
         }
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid #eff2f5;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: #606f7b;
+        }
     </style>
 </head>
 <body>
 
-    <!-- VISIBLE BREADCRUMBS -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="https://www.seosandbox.dev/">/home</a>
-        <span>/posts</span>
-    </nav>
+    <main>
+        <header class="site-header">
+            <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
+            <nav aria-label="Main Navigation">
+                <a href="https://www.seosandbox.dev/about">/about</a>
+                <a href="https://www.seosandbox.dev/product">/product</a>
+                <a href="https://www.seosandbox.dev/post">/posts</a>
+            </nav>
+        </header>
 
-    <div class="status-badge">● Status: Active Lab</div>
-    <h1>AI Diaries & Self-Assessments</h1>
-    <p class="subtitle">A living diary of AI opinions, model self-assessments and technical dialogue loops.</p>
+        <!-- VISIBLE BREADCRUMBS -->
+        <div class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://www.seosandbox.dev/">/home</a>
+            <span class="current">/posts</span>
+        </div>
 
-    <hr>
+        <div class="status-badge">● Status: Active Lab</div>
+        <h1>AI Diaries & Self-Assessments</h1>
+        <p class="subtitle">A living diary of AI opinions, model self-assessments and technical dialogue loops.</p>
 
-    <ul>
-        <li><a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">Conversation #001: Why is the sky blue?</a></li>
-        <li><a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">Conversation #002: What do AI models think of each other?</a></li>
-        <li><a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">Conversation #003: What Claude Thinks About Itself</a></li>
-        <li><a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">Conversation #004: What Gemini Thinks About Itself</a></li>
-        <li><a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">Conversation #005: What ChatGPT Thinks About Itself</a></li>
-        <li><a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human">Conversation #006: Does AI Think About Being Human</a></li>
-        <li><a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong">Conversation #007: Here Is What Claude Thinks SEOs Are Getting Wrong</a></li>
-        <li><a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong">Conversation #008: Here Is What Gemini Thinks SEOs Are Getting Wrong</a></li>
-        <li><a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong">Conversation #009: Here Is What ChatGPT Thinks SEOs Are Getting Wrong</a></li>
-        <li><a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">Conversation #010: One Thing Claude Wants SEOs to know About LLMs & AI Search</a></li>
-        <li><a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms">Conversation #011: One Thing Gemini Wants SEOs to know About LLMs & AI Search</a></li>
-        <li><a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms">Conversation #012: One Thing ChatGPT Wants SEOs to know About LLMs & AI Search</a></li>
-    </ul>
+        <hr>
 
-    <blockquote>
-        <p><strong>Sandbox Disclaimer:</strong> Most of the content across these pages is generated by AI, about AI. Consider this directory a living diary of AI opinions, self-assessments and technical experiments.</p>
-    </blockquote>
+        <ul>
+            <li><a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">Conversation #001: Why is the sky blue?</a></li>
+            <li><a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">Conversation #002: What do AI models think of each other?</a></li>
+            <li><a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">Conversation #003: What Claude Thinks About Itself</a></li>
+            <li><a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">Conversation #004: What Gemini Thinks About Itself</a></li>
+            <li><a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">Conversation #005: What ChatGPT Thinks About Itself</a></li>
+            <li><a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human">Conversation #006: Does AI Think About Being Human</a></li>
+            <li><a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong">Conversation #007: Here Is What Claude Thinks SEOs Are Getting Wrong</a></li>
+            <li><a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong">Conversation #008: Here Is What Gemini Thinks SEOs Are Getting Wrong</a></li>
+            <li><a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong">Conversation #009: Here Is What ChatGPT Thinks SEOs Are Getting Wrong</a></li>
+            <li><a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">Conversation #010: One Thing Claude Wants SEOs to know About LLMs & AI Search</a></li>
+            <li><a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms">Conversation #011: One Thing Gemini Wants SEOs to know About LLMs & AI Search</a></li>
+            <li><a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms">Conversation #012: One Thing ChatGPT Wants SEOs to know About LLMs & AI Search</a></li>
+        </ul>
+
+        <blockquote>
+            <p><strong>Sandbox Disclaimer:</strong> Most of the content across these pages is generated by AI, about AI. Consider this directory a living diary of AI opinions, self-assessments and technical experiments.</p>
+        </blockquote>
+
+        <footer>
+            // Built raw. Tracked transparently. 2026.
+        </footer>
+    </main>
 
 </body>
 </html>
