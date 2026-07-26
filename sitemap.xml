@@ -35,13 +35,48 @@
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-        <url>
+    <url>
         <loc>https://www.seosandbox.dev/post/what-gemini-thinks-about-itself</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-        <url>
+    <url>
         <loc>https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.seosandbox.dev/post/does-ai-think-about-being-human</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
