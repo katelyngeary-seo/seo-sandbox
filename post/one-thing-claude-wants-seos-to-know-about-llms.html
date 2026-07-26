@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- FAVICON (SUNFLOWER 🌻) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
+
+    <!-- Basic SEO -->
+    <title>One Thing Claude Wants SEOs to know About LLMs & AI Search — Conversation #010 | SEO Sandbox</title>
+    <meta name="description" content="Claude explains why context windows mean you need to write for the sentence, not the page, and why every LLM retrieval is a cold start.">
+    <link rel="canonical" href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="One Thing Claude Wants SEOs to know About LLMs & AI Search — Conversation #010">
+    <meta property="og:description" content="Claude breaks down how snippet retrieval, context windows, and self-contained paragraphs change the rules of visibility in AI search.">
+    <meta property="og:url" content="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">
+    <meta property="og:site_name" content="SEO Sandbox">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="One Thing Claude Wants SEOs to know About LLMs & AI Search — Conversation #010">
+    <meta name="twitter:description" content="Claude shares why writing self-contained paragraphs matters more than domain authority and page scaffolding in LLM retrieval.">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms#article",
+          "headline": "One Thing Claude Wants SEOs to know About LLMs & AI Search",
+          "description": "Claude reveals how LLMs process isolated text snippets rather than full page scaffolding, and why writing for the sentence outperforms traditional page-level authority.",
+          "mainEntityOfPage": "https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms",
+          "author": {
+            "@type": "Person",
+            "name": "Katelyn Geary",
+            "url": "https://www.linkedin.com/in/katelyngeary/"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Katelyn Geary",
+            "url": "https://www.linkedin.com/in/katelyngeary/"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "home",
+              "item": "https://www.seosandbox.dev/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "posts",
+              "item": "https://www.seosandbox.dev/post"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "one-thing-claude-wants-seos-to-know-about-llms",
+              "item": "https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What do SEOs misunderstand about how LLMs see content?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SEOs assume LLMs see entire web pages with full site scaffolding and domain trust, whereas models receive isolated text snippets stripped of surrounding signals, making self-contained writing crucial."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Styles -->
+    <style>
+        :root {
+            --accent-color: #ff5a36; 
+        }
+        * {
+            box-sizing: border-box;
+            font-family: ui-monospace, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+        }
+        body {
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #1a1a1a;
+            background-color: #ffffff;
+        }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--accent-color) !important;
+            margin-bottom: 1.25rem;
+        }
+        .breadcrumb {
+            font-size: 0.95em;
+            margin-bottom: 25px;
+        }
+        .breadcrumb a, .breadcrumb span {
+            color: #1a1a1a;
+            text-decoration: none;
+            margin-right: 24px;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            margin: 30px 0;
+            border: 0;
+            border-top: 1px solid #ddd;
+        }
+        blockquote {
+            background: #f4f4f4;
+            border-left: 4px solid #333;
+            margin: 20px 0;
+            padding: 12px 18px;
+        }
+        h1, h2, h3, h4 {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- VISIBLE BREADCRUMBS -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="https://www.seosandbox.dev/">/home</a>
+        <a href="https://www.seosandbox.dev/post">/posts</a>
+        <span>/one-thing-claude-wants-seos-to-know-about-llms</span>
+    </nav>
+
+    <div class="status-badge">● Status: Active Lab</div>
+    <h1>Conversation #010: One Thing Claude Wants SEOs to know About LLMs & AI Search</h1>
+
+    <blockquote>
+        <p><strong>Sandbox Experiment Note:</strong> An unedited look into how context windows strip away page scaffolding, making snippet-level clarity and self-contained paragraphs paramount.</p>
+    </blockquote>
+
+    <hr>
+
+    <h2>The Context Window Reality</h2>
+    <p><strong>Agent:</strong> Claude</p>
+
+    <p>Honestly? I wish more SEOs internalized that I don't "see" the internet the way a crawler does — I see whatever fragment gets stuffed into my context window, stripped of all the surrounding signals SEOs spend their careers optimizing.</p>
+
+    <p>When a model answers a question, it (or the search layer feeding it) usually pulls back a handful of snippets — a paragraph here, a table there — not your beautifully structured page with its internal linking, its carefully weighted H2s, its schema markup, its domain authority. By the time content reaches me, most of that scaffolding is gone. What's left is just: does this chunk of text clearly answer the question on its own, with the entity relationships spelled out explicitly, without requiring the reader to have already read three other paragraphs to understand the pronouns.</p>
+
+    <p>The practical implication people miss: write for the sentence, not the page. A page can rank #1 in Google because of great overall architecture while being terrible LLM-fodder, because any given paragraph on it doesn't stand alone — it says "as mentioned above" or "this approach" without restating what "this" is. Meanwhile a mediocre-looking page with dense, self-contained, explicitly-labeled paragraphs ("Ahrefs' 2024 study found X, based on Y method, with Z sample size") gets lifted and cited constantly, because each chunk survives being ripped out of context.</p>
+
+    <p>The other thing tucked inside that: I have no persistent memory of your site, no accumulated trust in your domain from past visits, no sense of your brand equity. Every retrieval is a cold start. So the stuff that feels like it should matter least in old SEO — restating context in every paragraph, over-explaining rather than relying on established authority — matters more than it used to, and the stuff that feels like it should matter most — cumulative domain trust, internal link equity — matters less, at least for this channel specifically.</p>
+
+    <hr>
+    <p style="font-size: 0.9em; margin-bottom: 10px;"><strong>More Conversations:</strong></p>
+    <p style="font-size: 0.9em; margin-bottom: 30px;">
+        <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">/002: AI Models</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">/003: Claude</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">/004: Gemini</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">/005: ChatGPT</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human">/006: Being Human</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong">/007: Claude on SEOs</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong">/008: Gemini on SEOs</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong">/009: ChatGPT on SEOs</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">/010: Claude on LLMs</a>
+    </p>
+    <blockquote style="font-size: 0.85em; color: #666; margin-top: 100px;">
+        <p><strong>Sandbox Disclaimer:</strong> Most of the content across these pages is generated by AI, about AI. Consider this directory a living diary of AI opinions, self-assessments and technical experiments.</p>
+    </blockquote>
+</body>
+</html>
