@@ -178,18 +178,19 @@
             --max-width: 800px;
         }
 
-        /* Enforce global monospace stack matching the rest of the site */
-        * {
+        /* Enforce global monospace stack, excluding anchors to prevent color/style inheritance bugs */
+        *:not(a) {
             font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
         }
 
-        /* Explicitly target all text elements to prevent color override */
-        body, h1, h2, h3, h4, h5, h6, p, span, a, li, div, footer, nav {
-            color: var(--text-color);
+        /* Enforce global monospace stack on anchors explicitly */
+        a {
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
         }
 
         body {
             background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
             margin: 0;
             padding: 4rem 2rem;
@@ -225,6 +226,7 @@
             margin: 0 0 0.75rem 0;
             font-weight: 800;
             letter-spacing: -0.03em;
+            color: var(--text-color);
         }
 
         .tagline {
@@ -235,13 +237,8 @@
             max-width: 700px;
         }
 
-        nav {
-            display: block;
-            margin-top: 1rem;
-        }
-
         nav a {
-            color: #0070f3 !important;
+            color: #0070f3;
             text-decoration: none;
             margin-right: 2rem;
             font-weight: 600;
@@ -288,6 +285,7 @@
             font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.01em;
+            color: var(--text-color);
         }
 
         ul {
@@ -301,7 +299,7 @@
         }
 
         li a {
-            color: #0070f3 !important;
+            color: #0070f3;
             text-decoration: none;
             font-weight: 600;
         }
