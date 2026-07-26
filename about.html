@@ -77,6 +77,28 @@
             margin: 40px auto;
             padding: 0 20px;
         }
+        /* Universal Header Styles */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eff2f5;
+        }
+        .site-header nav {
+            display: flex;
+            gap: 16px;
+        }
+        .site-header a {
+            color: #0070f3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .site-header a:hover {
+            text-decoration: underline;
+        }
         /* Unified breadcrumb styling to match normal paragraph/link rhythm */
         .breadcrumbs {
             margin-bottom: 24px;
@@ -129,6 +151,15 @@
 <body>
 
     <main>
+        <header class="site-header">
+            <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
+            <nav>
+                <a href="https://www.seosandbox.dev/about">/about</a>
+                <a href="https://www.seosandbox.dev/product">/product</a>
+                <a href="https://www.seosandbox.dev/post">/posts</a>
+            </nav>
+        </header>
+
         <div class="breadcrumbs" aria-label="Breadcrumb">
             <a href="https://www.seosandbox.dev/">/home</a> <span class="current">/about</span>
         </div>
