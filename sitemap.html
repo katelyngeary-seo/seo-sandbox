@@ -10,10 +10,60 @@
     <!-- Primary Metadata -->
     <title>SEO Sandbox // HTML Sitemap</title>
     <meta name="description" content="Complete index of pages and articles available across the SEO Sandbox technical archive.">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
     <!-- Indexing & Canonical -->
     <link rel="canonical" href="https://www.seosandbox.dev/sitemap">
+
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SEO Sandbox // HTML Sitemap">
+    <meta property="og:description" content="Complete index of pages and articles available across the SEO Sandbox technical archive.">
+    <meta property="og:url" content="https://www.seosandbox.dev/sitemap">
+    <meta property="og:site_name" content="SEO Sandbox">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SEO Sandbox // HTML Sitemap">
+    <meta name="twitter:description" content="Complete index of pages and articles available across the SEO Sandbox technical archive.">
+
+    <!-- Structured Data (Schema.org Graph: WebPage, BreadcrumbList) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.seosandbox.dev/sitemap#webpage",
+      "url": "https://www.seosandbox.dev/sitemap",
+      "name": "SEO Sandbox // HTML Sitemap",
+      "description": "Complete index of pages and articles available across the SEO Sandbox technical archive.",
+      "breadcrumb": {
+        "@id": "https://www.seosandbox.dev/sitemap#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.seosandbox.dev/sitemap#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.seosandbox.dev/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sitemap",
+          "item": "https://www.seosandbox.dev/sitemap"
+        }
+      ]
+    }
+  ]
+}
+    </script>
 
     <style>
         :root {
@@ -29,6 +79,7 @@
         /* Enforce global monospace stack matching the rest of the site */
         * {
             font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
         }
 
         body {
@@ -38,6 +89,9 @@
             margin: 0;
             padding: 4rem 2rem;
             -webkit-font-smoothing: antialiased;
+            max-width: var(--max-width);
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .container {
@@ -77,7 +131,7 @@
         }
 
         nav a {
-            color: var(--text-color);
+            color: #0070f3;
             text-decoration: none;
             margin-right: 2rem;
             font-weight: 600;
@@ -85,7 +139,7 @@
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            text-decoration: underline;
         }
 
         main {
@@ -137,13 +191,12 @@
         }
 
         li a {
-            color: var(--text-color);
+            color: #0070f3;
             text-decoration: none;
             font-weight: 600;
         }
 
         li a:hover {
-            color: var(--accent-color);
             text-decoration: underline;
         }
 
@@ -206,7 +259,6 @@
                         <li><a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">Conversation #010: One Thing Claude Wants SEOs to know About LLMs & AI Search</a></li>
                         <li><a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms">Conversation #011: One Thing Gemini Wants SEOs to know About LLMs & AI Search</a></li>
                         <li><a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms">Conversation #012: One Thing ChatGPT Wants SEOs to know About LLMs & AI Search</a></li>
-
                     </ul>
                 </div>
             </section>
