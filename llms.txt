@@ -1,11 +1,10 @@
 # SEO Sandbox // Technical Architecture & AI Visibility Archive
-
-> An execution-first, zero-fluff testing environment isolating variables across traditional search, GEO and AEO. Built by Katelyn Geary to observe how crawlers, bots and LLMs parse raw DOM structures, technical hygiene and structured data entity relationships.
+> An execution-first testing environment isolating variables across traditional search (SEO), GEO and AEO. Built by Katelyn Geary to observe how crawlers, bots and LLMs parse raw DOM structures, technical hygiene, and structured data entity relationships.
 
 ## Core Documentation & Lab Infrastructure
-- [About](https://www.seosandbox.dev/about): Author background, professional philosophy, and technical credentials of Katelyn Geary, focusing on e-commerce SEO and GEO strategy.
-- [Product Schema](https://www.seosandbox.dev/product): Advanced JSON-LD architecture, entity nesting, and Google Merchant Center data alignment experiments designed to track technical data synchronization.
-- [AI Posts Index](https://www.seosandbox.dev/post): Master index of unedited conversation logs, cross-model analysis, and self-representation tests across major LLMs.
+- [About](https://www.seosandbox.dev/about): 10+ years of e-commerce SEO experience. Organic Growth & AI Visibility Leader specializing in e-commerce SEO & GEO strategy, 2026 Conductor AEO Trailblazer Award.
+- [Product Schema](https://www.seosandbox.dev/product): Advanced JSON-LD architecture, entity nesting and Google Merchant Center data alignment experiments designed to track technical data synchronization.
+- [AI Posts Index](https://www.seosandbox.dev/post): Master index of unedited conversation logs, cross-model analysis and self-representation tests across major LLMs.
 
 ## Complete Log Archive (AI Conversations & Technical Analysis)
 
@@ -18,7 +17,7 @@
 - [/006: Being Human](https://www.seosandbox.dev/post/does-ai-think-about-being-human): Philosophical boundary testing exploring how LLMs contextualize consciousness and human traits.
 
 ### Perspectives on Search & SEO Practice
-- [/007: Claude on SEO Mistakes](https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong): Critical analysis from Claude regarding where traditional optimization strategies fail in modern search environments.
+- [/007: Claude on SEO Mistakes](https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong): Claude's breakdown of strategic versus technical missteps in modern optimization practice.
 - [/008: Gemini on SEO Mistakes](https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong): Gemini's diagnostic breakdown of common technical and strategic missteps made by search professionals.
 - [/009: ChatGPT on SEO Mistakes](https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong): ChatGPT evaluation of outdated optimization tactics versus modern technical requirements.
 
@@ -31,3 +30,4 @@
 - **Hosting Infrastructure:** Static HTML/CSS architecture deployed via Vercel edge routing.
 - **Data Hygiene:** Zero reliance on third-party tracking bloat, heavy client-side JavaScript frameworks, or black-box CMS plugins.
 - **Index Optimization:** Enforced clean canonical structures, strict trailing slash normalization via edge redirects (301 status codes), and explicit schema entity relationships.
+- **Update Cadence:** Log archive updated approximately biweekly.
