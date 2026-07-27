@@ -81,8 +81,8 @@
 
         header {
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2rem;
-            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         .status-badge {
@@ -92,12 +92,12 @@
             letter-spacing: 0.05em;
             font-weight: 600;
             color: var(--accent-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
 
         h1 {
-            font-size: 2rem;
-            margin: 0 0 0.5rem 0;
+            font-size: 2.25rem;
+            margin: 0 0 0.75rem 0;
             font-weight: 800;
             letter-spacing: -0.03em;
         }
@@ -106,7 +106,7 @@
         .builder-meta {
             font-size: 0.85rem;
             color: #555;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             padding: 10px 14px;
             background: var(--code-bg);
             border-radius: 4px;
@@ -119,9 +119,9 @@
         }
 
         .tagline {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            margin: 0 0 1.5rem 0;
+            margin: 0 0 2rem 0;
             font-weight: 400;
             max-width: 700px;
         }
@@ -139,23 +139,27 @@
         }
 
         main {
-            padding: 0.5rem 0;
+            padding: 1rem 0;
         }
 
         .section-title {
             font-size: 0.85rem;
             color: var(--text-muted);
             margin-top: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-weight: 600;
         }
 
+        #logs {
+            margin-top: 4rem;
+        }
+
         .log-entry {
             border-left: 3px solid var(--border-color);
             padding-left: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .log-entry:hover {
@@ -163,15 +167,15 @@
         }
 
         .log-date {
-            font-size: 0.9rem;
+            font-size: 1.0rem;
             color: var(--text-muted);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
         .log-entry h2 {
-            margin: 0 0 0.4rem 0;
-            font-size: 1.15rem;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.01em;
         }
@@ -179,7 +183,6 @@
         .log-entry p {
             margin: 0;
             color: var(--text-muted);
-            font-size: 0.95rem;
         }
 
         code {
@@ -192,9 +195,9 @@
         }
 
         footer {
-            margin-top: 4rem;
+            margin-top: 6rem;
             border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             font-size: 0.8rem;
             color: var(--text-muted);
         }
@@ -223,7 +226,7 @@
         <main>
             <section id="manifesto">
                 <div class="section-title">01 // The Lab Directive</div>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">This space rejects over-automated frameworks and bloated competitive myths. We build clean DOM structures, test strict schema alignment and verify how edge cases render in real-time. Hygiene isn't a competitive advantage anymore, it's table stakes.</p>
+                <p>This space rejects over-automated frameworks and bloated competitive myths. We build clean DOM structures, test strict schema alignment and verify how edge cases render in real-time. Hygiene isn't a competitive advantage anymore, it's table stakes.</p>
             </section>
 
             <section id="logs">
@@ -247,29 +250,29 @@
                     <p>Deploying advanced JSON-LD architecture to track entity relationships without reliance on third-party black boxes.</p>
                 </div>
 
-                <div class="log-entry" style="margin-bottom: 1.5rem;">
+                <div class="log-entry" style="margin-bottom: 1rem;">
                     <div class="log-date">[QUERY_LOG]</div>
                     <h2>AI Conversations</h2>
                     <p>Direct queries run against major LLMs, logged without editing. Testing self-representation, cross-model bias and how each system frames its own limitations.</p>
                 </div> 
 
-                <div style="padding-left: 1.5rem; margin-top: 1.5rem;">
-                    <p style="font-size: 0.85rem; margin: 0; line-height: 1.8;">
-                        <strong style="color: var(--text-color);">Featured Logs:</strong>
-                        <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">/002: AI Models</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">/003: Claude</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">/004: Gemini</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">/005: ChatGPT</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human">/006: Being Human</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong">/007: Claude on SEOs</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong">/008: Gemini on SEOs</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong">/009: ChatGPT on SEOs</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">/010: Claude on LLMs</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms">/011: Gemini on LLMs</a> &bull; 
-                        <a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms">/012: ChatGPT on LLMs</a>
-                    </p>
-                </div>
+                <div style="padding-left: 1.5rem;">
+        <p style="font-size: 0.9em; margin-top: 0.5rem; margin-bottom: 30px;">
+        <strong style="color: var(--text-color);">Featured Logs:</strong>
+        <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue" style="font-size: 0.9em;">/001: Blue Sky</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other" style="font-size: 0.9em;">/002: AI Models</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself" style="font-size: 0.9em;">/003: Claude</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself" style="font-size: 0.9em;">/004: Gemini</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself" style="font-size: 0.9em;">/005: ChatGPT</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human" style="font-size: 0.9em;">/006: Being Human</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong" style="font-size: 0.9em;">/007: Claude on SEOs</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong" style="font-size: 0.9em;">/008: Gemini on SEOs</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong" style="font-size: 0.9em;">/009: ChatGPT on SEOs</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms" style="font-size: 0.9em;">/010: Claude on LLMs</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms" style="font-size: 0.9em;">/011: Gemini on LLMs</a> &bull; 
+        <a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms" style="font-size: 0.9em;">/012: ChatGPT on LLMs</a>
+    </p>
+</div>
             </section>
         </main>
 
