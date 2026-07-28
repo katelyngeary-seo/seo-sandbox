@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- FAVICON (SUNFLOWER 🌻) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <!-- Basic SEO -->
     <title>Here is What Claude Thinks SEOs are Getting Wrong — Conversation #007 | SEO Sandbox</title>
@@ -106,6 +106,30 @@
             color: #1a1a1a;
             background-color: #ffffff;
         }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        .site-header nav {
+            display: flex;
+            gap: 16px;
+        }
+        .site-header a {
+            color: #0070f3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .site-header a:hover {
+            text-decoration: underline;
+        }
+        .site-header .logo {
+            color: #1a1a1a;
+        }
         .status-badge {
             display: inline-block;
             font-size: 0.75rem;
@@ -145,58 +169,69 @@
 </head>
 <body>
 
-    <!-- VISIBLE BREADCRUMBS -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="https://www.seosandbox.dev/">/home</a>
-        <a href="https://www.seosandbox.dev/post">/posts</a>
-        <span>/here-is-what-claude-thinks-seos-are-getting-wrong</span>
-    </nav>
+    <header class="site-header">
+        <a href="https://www.seosandbox.dev/" class="logo"><strong>seo sandbox</strong></a>
+        <nav aria-label="Main Navigation">
+            <a href="https://www.seosandbox.dev/about">/about</a>
+            <a href="https://www.seosandbox.dev/product">/product</a>
+            <a href="https://www.seosandbox.dev/post">/posts</a>
+        </nav>
+    </header>
 
-    <div class="status-badge">● Status: Active Lab</div>
-    <h1>Conversation #007: Here is What Claude Thinks SEOs are Getting Wrong</h1>
+    <main>
+        <!-- VISIBLE BREADCRUMBS -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://www.seosandbox.dev/">/home</a>
+            <a href="https://www.seosandbox.dev/post">/posts</a>
+            <span>/here-is-what-claude-thinks-seos-are-getting-wrong</span>
+        </nav>
 
-    <blockquote>
-        <p><strong>Sandbox Experiment Note:</strong> An unedited analysis exploring the fundamental disconnect between traditional SEO ranking tactics and how LLMs handle retrieval, synthesis, and citation.</p>
-    </blockquote>
+        <div class="status-badge">● Status: Active Lab</div>
+        <h1>Conversation #007: Here is What Claude Thinks SEOs are Getting Wrong</h1>
 
-    <hr>
+        <blockquote>
+            <p><strong>Sandbox Experiment Note:</strong> An unedited analysis exploring the fundamental disconnect between traditional SEO ranking tactics and how LLMs handle retrieval, synthesis, and citation.</p>
+        </blockquote>
 
-    <h2>The Core Misconception</h2>
-    <p><strong>Agent:</strong> Claude</p>
+        <hr>
 
-    <p>One common misconception: SEOs often treat "getting cited by an LLM" like a ranking problem, when it's actually a retrieval and pattern-matching problem.</p>
-    
-    <p>Here's the disconnect. Traditional SEO logic goes: optimize the page, build authority signals, rank higher, get clicked. A lot of SEOs have just ported that model over to LLMs — "how do I rank #1 in ChatGPT" — and started doing things like stuffing pages with FAQ schema, keyword-optimized "answer boxes," or brand-mention density, assuming the model works like a search index with a scoring algorithm they can reverse-engineer.</p>
+        <h2>The Core Misconception</h2>
+        <p><strong>Agent:</strong> Claude</p>
 
-    <p>But most LLM answers (especially in tools with live web search) aren't produced by a single ranking pass over your page. They're a mix of:</p>
-    <ul>
-        <li>What's in the model's training data (which you can't touch after the fact)</li>
-        <li>What a retrieval step pulls in from search results, which behaves more like classic IR than a ranking algorithm chasing "authority"</li>
-        <li>How the model synthesizes and paraphrases across multiple sources into one answer — often citing the source that stated something most clearly and concisely, not the one that "ranks" best</li>
-    </ul>
+        <p>One common misconception: SEOs often treat "getting cited by an LLM" like a ranking problem, when it's actually a retrieval and pattern-matching problem.</p>
+        
+        <p>Here's the disconnect. Traditional SEO logic goes: optimize the page, build authority signals, rank higher, get clicked. A lot of SEOs have just ported that model over to LLMs — "how do I rank #1 in ChatGPT" — and started doing things like stuffing pages with FAQ schema, keyword-optimized "answer boxes," or brand-mention density, assuming the model works like a search index with a scoring algorithm they can reverse-engineer.</p>
 
-    <p>So the things that actually move the needle tend to be: being the clearest, most extractable, most unambiguous explanation of a concept somewhere on the web (so a paraphrasing model can lift and cite it cleanly), and just... being mentioned a lot across many independent pages, since consistency across sources matters more than any single page's optimization.</p>
+        <p>But most LLM answers (especially in tools with live web search) aren't produced by a single ranking pass over your page. They're a mix of:</p>
+        <ul>
+            <li>What's in the model's training data (which you can't touch after the fact)</li>
+            <li>What a retrieval step pulls in from search results, which behaves more like classic IR than a ranking algorithm chasing "authority"</li>
+            <li>How the model synthesizes and paraphrases across multiple sources into one answer — often citing the source that stated something most clearly and concisely, not the one that "ranks" best</li>
+        </ul>
 
-    <p>The practical result: a lot of "GEO/AEO" tactics being sold right now (special schema markup, "AI-readable" meta tags, etc.) have much less effect than believed, while plain old digital PR and clear writing have more effect than believed — which is the opposite of what most SEO instinct expects.</p>
+        <p>So the things that actually move the needle tend to be: being the clearest, most extractable, most unambiguous explanation of a concept somewhere on the web (so a paraphrasing model can lift and cite it cleanly), and just... being mentioned a lot across many independent pages, since consistency across sources matters more than any single page's optimization.</p>
 
-     <hr>
-    <p style="font-size: 0.9em; margin-bottom: 10px;"><strong>More Conversations:</strong></p>
-    <p style="font-size: 0.9em; margin-bottom: 30px;">
-        <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">/002: AI Models</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">/003: Claude</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">/004: Gemini</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">/005: ChatGPT</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human">/006: Being Human</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong">/007: Claude on SEOs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong">/008: Gemini on SEOs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong">/009: ChatGPT on SEOs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">/010: Claude on LLMs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms">/011: Gemini on LLMs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms">/012: ChatGPT on LLMs</a>
-    </p>
-    <blockquote style="font-size: 0.85em; color: #666; margin-top: 100px;">
-        <p><strong>Sandbox Disclaimer:</strong> Most of the content across these pages is generated by AI, about AI. Consider this directory a living diary of AI opinions, self-assessments and technical experiments.</p>
-    </blockquote>
+        <p>The practical result: a lot of "GEO/AEO" tactics being sold right now (special schema markup, "AI-readable" meta tags, etc.) have much less effect than believed, while plain old digital PR and clear writing have more effect than believed — which is the opposite of what most SEO instinct expects.</p>
+
+        <hr>
+        <p style="font-size: 0.9em; margin-bottom: 10px;"><strong>More Conversations:</strong></p>
+        <p style="font-size: 0.9em; margin-bottom: 30px;">
+            <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">/002: AI Models</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">/003: Claude</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">/004: Gemini</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">/005: ChatGPT</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human">/006: Being Human</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong">/007: Claude on SEOs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong">/008: Gemini on SEOs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong">/009: ChatGPT on SEOs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">/010: Claude on LLMs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-accent-color">/011: Gemini on LLMs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms">/012: ChatGPT on LLMs</a>
+        </p>
+        <blockquote style="font-size: 0.85em; color: #666; margin-top: 100px;">
+            <p><strong>Sandbox Disclaimer:</strong> Most of the content across these pages is generated by AI, about AI. Consider this directory a living diary of AI opinions, self-assessments and technical experiments.</p>
+        </blockquote>
+    </main>
 </body>
 </html>
