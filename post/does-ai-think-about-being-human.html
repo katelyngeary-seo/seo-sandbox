@@ -117,36 +117,28 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        header {
+        .site-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1.5rem;
-            margin-bottom: 2.5rem;
         }
 
-        .site-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text-color);
+        .site-header nav {
+            display: flex;
+            gap: 16px;
+        }
+
+        .site-header a {
+            color: #0070f3;
             text-decoration: none;
-            letter-spacing: -0.02em;
+            font-weight: 500;
         }
 
-        .site-title:hover {
-            color: var(--accent-color);
-        }
-
-        nav a {
-            color: var(--accent-color);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
+        .site-header a:hover {
             text-decoration: underline;
         }
 
@@ -200,8 +192,8 @@
 </head>
 <body>
 
-    <header>
-        <a href="https://www.seosandbox.dev/" class="site-title">seo sandbox</a>
+    <header class="site-header">
+        <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
         <nav aria-label="Main Navigation">
             <a href="https://www.seosandbox.dev/about">/about</a>
             <a href="https://www.seosandbox.dev/product">/product</a>
