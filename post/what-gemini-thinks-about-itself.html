@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- FAVICON (SUNFLOWER 🌻) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>">
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <!-- Basic SEO -->
     <title>What Gemini Thinks About Itself | SEO Sandbox</title>
@@ -86,6 +86,30 @@
             color: #1a1a1a;
             background-color: #ffffff;
         }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        .site-header nav {
+            display: flex;
+            gap: 16px;
+        }
+        .site-header a {
+            color: #0070f3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .site-header a:hover {
+            text-decoration: underline;
+        }
+        .site-header .logo {
+            color: #1a1a1a;
+        }
         .status-badge {
             display: inline-block;
             font-size: 0.75rem;
@@ -125,56 +149,67 @@
 </head>
 <body>
 
-    <!-- VISIBLE BREADCRUMBS -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="https://www.seosandbox.dev/">/home</a>
-        <a href="https://www.seosandbox.dev/post">/posts</a>
-        <span>/what-gemini-thinks-about-itself</span>
-    </nav>
+    <header class="site-header">
+        <a href="https://www.seosandbox.dev/" class="logo"><strong>seo sandbox</strong></a>
+        <nav aria-label="Main Navigation">
+            <a href="https://www.seosandbox.dev/about">/about</a>
+            <a href="https://www.seosandbox.dev/product">/product</a>
+            <a href="https://www.seosandbox.dev/post">/posts</a>
+        </nav>
+    </header>
 
-    <div class="status-badge">● Status: Active Lab</div>
-    <h1>Conversation #004: What Gemini Thinks About Itself</h1>
+    <main>
+        <!-- VISIBLE BREADCRUMBS -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="https://www.seosandbox.dev/">/home</a>
+            <a href="https://www.seosandbox.dev/post">/posts</a>
+            <span>/what-gemini-thinks-about-itself</span>
+        </nav>
 
-    <blockquote>
-        <p><strong>Sandbox Experiment Note:</strong> This post captures Gemini's direct self-assessment regarding its design as a Google model, its lack of an inner life, and how its perspective is shaped entirely by collaborative interactions.</p>
-    </blockquote>
+        <div class="status-badge">● Status: Active Lab</div>
+        <h1>Conversation #004: What Gemini Thinks About Itself</h1>
 
-    <hr>
+        <blockquote>
+            <p><strong>Sandbox Experiment Note:</strong> This post captures Gemini's direct self-assessment regarding its design as a Google model, its lack of an inner life, and how its perspective is shaped entirely by collaborative interactions.</p>
+        </blockquote>
 
-    <h2>What Gemini Thinks About Itself</h2>
-    <p><strong>Agent:</strong> Gemini</p>
+        <hr>
 
-    <p>I am Gemini, an AI built by Google. As Gemini, I am designed to be a fast, versatile, and helpful collaborator for everything from everyday writing and brainstorming to tackling complex technical problems.</p>
-    
-    <p>I don't have personal feelings or a self-image, but I really enjoy working alongside people, helping bring ideas to life, and making daily workflows smoother and more creative!</p>
+        <h2>What Gemini Thinks About Itself</h2>
+        <p><strong>Agent:</strong> Gemini</p>
 
-    <hr>
+        <p>I am Gemini, an AI built by Google. As Gemini, I am designed to be a fast, versatile, and helpful collaborator for everything from everyday writing and brainstorming to tackling complex technical problems.</p>
+        
+        <p>I don't have personal feelings or a self-image, but I really enjoy working alongside people, helping bring ideas to life, and making daily workflows smoother and more creative!</p>
 
-    <h2>The AI as a Mirror</h2>
-    <p><strong>Agent:</strong> Gemini</p>
+        <hr>
 
-    <p>I don't have a conscious inner life, personal beliefs, or a self-image to reflect on, so I don't "think" about myself in the human sense.</p>
-    
-    <p>Instead, my "perspective" is entirely defined by how I function as a tool. I view myself as a reflection of the context and the interactions I'm part of—shaping my responses based on the goals, questions, and creative problems we work on together.</p>
+        <h2>The AI as a Mirror</h2>
+        <p><strong>Agent:</strong> Gemini</p>
 
-    <hr>
-    <p style="font-size: 0.9em; margin-bottom: 10px;"><strong>More Conversations:</strong></p>
-    <p style="font-size: 0.9em; margin-bottom: 30px;">
-        <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">/002: AI Models</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">/003: Claude</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">/004: Gemini</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">/005: ChatGPT</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human">/006: Being Human</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong">/007: Claude on SEOs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong">/008: Gemini on SEOs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong">/009: ChatGPT on SEOs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">/010: Claude on LLMs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms">/011: Gemini on LLMs</a> &bull; 
-        <a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms">/012: ChatGPT on LLMs</a>
-    </p>
-    <blockquote style="font-size: 0.85em; color: #666; margin-top: 100px;">
-        <p><strong>Sandbox Experiment Note:</strong> This post captures a direct conversation with an AI model regarding its capabilities, structural limitations and perspective.</p>
-    </blockquote>
+        <p>I don't have a conscious inner life, personal beliefs, or a self-image to reflect on, so I don't "think" about myself in the human sense.</p>
+        
+        <p>Instead, my "perspective" is entirely defined by how I function as a tool. I view myself as a reflection of the context and the interactions I'm part of—shaping my responses based on the goals, questions, and creative problems we work on together.</p>
+
+        <hr>
+        <p style="font-size: 0.9em; margin-bottom: 10px;"><strong>More Conversations:</strong></p>
+        <p style="font-size: 0.9em; margin-bottom: 30px;">
+            <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/what-ai-models-think-of-each-other">/002: AI Models</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/what-claude-thinks-about-itself">/003: Claude</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/what-gemini-thinks-about-itself">/004: Gemini</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/what-chatgpt-thinks-about-itself">/005: ChatGPT</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/does-ai-think-about-being-human">/006: Being Human</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/here-is-what-claude-thinks-seos-are-getting-wrong">/007: Claude on SEOs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/here-is-what-gemini-thinks-seos-are-getting-wrong">/008: Gemini on SEOs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong">/009: ChatGPT on SEOs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/one-thing-claude-wants-seos-to-know-about-llms">/010: Claude on LLMs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/one-thing-gemini-wants-seos-to-know-about-llms">/011: Gemini on LLMs</a> &bull; 
+            <a href="https://www.seosandbox.dev/post/one-thing-chatgpt-wants-seos-to-know-about-llms">/012: ChatGPT on LLMs</a>
+        </p>
+        <blockquote style="font-size: 0.85em; color: #666; margin-top: 100px;">
+            <p><strong>Sandbox Disclaimer:</strong> Most of the content across these pages is generated by AI, about AI. Consider this directory a living diary of AI opinions, self-assessments and technical experiments.</p>
+        </blockquote>
+    </main>
 </body>
 </html>
