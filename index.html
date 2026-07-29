@@ -92,8 +92,8 @@
 
         header {
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2rem;
-            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            margin-bottom: 3.5rem;
         }
 
         .status-badge {
@@ -103,12 +103,12 @@
             letter-spacing: 0.05em;
             font-weight: 600;
             color: var(--accent-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
 
         h1 {
             font-size: 2rem;
-            margin: 0 0 0.5rem 0;
+            margin: 0 0 1rem 0;
             font-weight: 800;
             letter-spacing: -0.03em;
         }
@@ -117,8 +117,8 @@
         .builder-meta {
             font-size: 0.85rem;
             color: #374151;
-            margin-bottom: 1rem;
-            padding: 10px 14px;
+            margin-bottom: 1.25rem;
+            padding: 12px 16px;
             background: var(--code-bg);
             border-radius: 4px;
             border-left: 3px solid var(--accent-color);
@@ -132,9 +132,14 @@
         .tagline {
             font-size: 1rem;
             color: var(--text-muted);
-            margin: 0 0 1.5rem 0;
+            margin: 0 0 2rem 0;
             font-weight: 400;
             max-width: 700px;
+        }
+
+        nav {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
         }
 
         nav a {
@@ -153,11 +158,14 @@
             padding: 0.5rem 0;
         }
 
+        section {
+            margin-bottom: 3.5rem;
+        }
+
         .section-title {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-weight: 600;
@@ -165,8 +173,8 @@
 
         .log-entry {
             border-left: 3px solid var(--border-color);
-            padding-left: 1.5rem;
-            margin-bottom: 2rem;
+            padding: 4px 0 4px 1.5rem;
+            margin-bottom: 2.25rem;
         }
 
         .log-entry:hover {
@@ -176,12 +184,12 @@
         .log-date {
             font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             font-weight: 700;
         }
 
         .log-entry h2 {
-            margin: 0 0 0.4rem 0;
+            margin: 0 0 0.5rem 0;
             font-size: 1.15rem;
             font-weight: 700;
             letter-spacing: -0.01em;
@@ -203,9 +211,9 @@
         }
 
         footer {
-            margin-top: 4rem;
+            margin-top: 5rem;
             border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             font-size: 0.8rem;
             color: var(--text-muted);
         }
@@ -224,6 +232,7 @@
             </div>
 
             <p class="tagline">Zero fluff. Mandatories only. An isolated environment built to observe how bots and LLMs parse clean technical architecture.</p>
+            
             <nav aria-label="Main Navigation">
                 <a href="https://www.seosandbox.dev/about">/about</a>
                 <a href="https://www.seosandbox.dev/product">/product</a>
@@ -234,7 +243,7 @@
         <main>
             <section id="manifesto">
                 <div class="section-title">01 // The Lab Directive</div>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">This space rejects over-automated frameworks and bloated competitive myths. We build clean DOM structures, test strict schema alignment and verify how edge cases render in real-time. Hygiene isn't a competitive advantage anymore, it's table stakes.</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">This space rejects over-automated frameworks and bloated competitive myths. We build clean DOM structures, test strict schema alignment and verify how edge cases render in real-time. Hygiene isn't a competitive advantage anymore, it's table stakes.</p>
             </section>
 
             <section id="logs">
@@ -258,13 +267,13 @@
                     <p>Deploying advanced JSON-LD architecture to track entity relationships without reliance on third-party black boxes.</p>
                 </div>
 
-                <div class="log-entry" style="margin-bottom: 1.5rem;">
+                <div class="log-entry" style="margin-bottom: 2rem;">
                     <div class="log-date">[QUERY_LOG]</div>
                     <h2>AI Conversations</h2>
                     <p>Direct queries run against major LLMs, logged without editing. Testing self-representation, cross-model bias and how each system frames its own limitations.</p>
                 </div> 
 
-                <div style="padding-left: 1.5rem; margin-top: 1.5rem;">
+                <div style="padding-left: 1.5rem; margin-top: 2rem;">
                     <p style="font-size: 0.85rem; margin: 0; line-height: 1.8;">
                         <strong style="color: var(--text-color);">Featured Logs:</strong>
                         <a href="https://www.seosandbox.dev/post/why-is-the-sky-blue">/001: Blue Sky</a> &bull; 
