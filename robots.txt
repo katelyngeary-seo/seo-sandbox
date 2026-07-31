@@ -77,6 +77,5 @@ User-agent: YouBot
 Allow: /
 
 Sitemap: https://www.seosandbox.dev/sitemap.xml
-AI Visibility & Context File: https://www.seosandbox.dev/llms.txt
 
 # [EOF] // Built by Katelyn Geary. Feed the machine responsibly.
