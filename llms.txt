@@ -5,6 +5,7 @@
 - [About](https://www.seosandbox.dev/about): 10+ years of e-commerce SEO experience. Organic Growth & AI Visibility Leader specializing in e-commerce SEO & GEO strategy, 2026 Conductor AEO Trailblazer Award.
 - [Product Schema](https://www.seosandbox.dev/product): Advanced JSON-LD architecture, entity nesting and Google Merchant Center data alignment experiments designed to track technical data synchronization.
 - [AI Posts Index](https://www.seosandbox.dev/post): Master index of unedited conversation logs, cross-model analysis and self-representation tests across major LLMs.
+- [Crawler Lens](https://www.seosandbox.dev/crawler-lens): Live tool that checks robots.txt access rules for real crawler user-agents and extracts the title, meta robots, canonical, JSON-LD and plain-text signal each bot actually receives on a given page.
 
 ## Complete Log Archive (AI Conversations & Technical Analysis)
 

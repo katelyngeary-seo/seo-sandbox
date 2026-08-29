@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Primary Metadata -->
+    <title>Crawler Lens // Bot Access & Signal Simulator | SEO Sandbox</title>
+    <meta name="description" content="Live tool that checks robots.txt access rules and extracts the title, meta robots, canonical, JSON-LD and plain-text signal any crawler actually sees on a given SEO Sandbox page.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Indexing & Canonical -->
+    <link rel="canonical" href="https://www.seosandbox.dev/crawler-lens">
+
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Crawler Lens // Bot Access & Signal Simulator">
+    <meta property="og:description" content="Live tool that checks robots.txt access rules and extracts the exact signal a crawler sees on a given SEO Sandbox page.">
+    <meta property="og:url" content="https://www.seosandbox.dev/crawler-lens">
+    <meta property="og:site_name" content="SEO Sandbox">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Crawler Lens // Bot Access & Signal Simulator">
+    <meta name="twitter:description" content="Live tool that checks robots.txt access rules and extracts the exact signal a crawler sees on a given SEO Sandbox page.">
+
+    <!-- Structured Data (Schema.org Graph: WebPage, BreadcrumbList) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.seosandbox.dev/crawler-lens#webpage",
+          "url": "https://www.seosandbox.dev/crawler-lens",
+          "name": "Crawler Lens // Bot Access & Signal Simulator",
+          "description": "Live tool that checks robots.txt access rules and extracts the title, meta robots, canonical, JSON-LD and plain-text signal any crawler actually sees on a given SEO Sandbox page.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://www.seosandbox.dev/#website",
+            "url": "https://www.seosandbox.dev/",
+            "name": "SEO Sandbox"
+          },
+          "breadcrumb": {
+            "@id": "https://www.seosandbox.dev/crawler-lens#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.seosandbox.dev/crawler-lens#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "home", "item": "https://www.seosandbox.dev/" },
+            { "@type": "ListItem", "position": 2, "name": "crawler-lens", "item": "https://www.seosandbox.dev/crawler-lens" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1f26;
+            --text-muted: #606f7b;
+            --accent-color: #ff5a36;
+            --ok-color: #0a7d3a;
+            --fail-color: #c02626;
+            --border-color: #eff2f5;
+            --code-bg: #f8fafc;
+            --max-width: 760px;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
+        }
+        body {
+            line-height: 1.6;
+            max-width: var(--max-width);
+            margin: 40px auto;
+            padding: 0 20px 80px;
+            background-color: var(--bg-color);
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .site-header nav { display: flex; gap: 16px; flex-wrap: wrap; }
+        .site-header a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .site-header a:hover { text-decoration: underline; }
+        .breadcrumbs { display: flex; gap: 8px; margin-bottom: 24px; font-size: 0.95em; }
+        .breadcrumbs a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs span { color: var(--text-muted); font-weight: 500; }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--accent-color) !important;
+            margin-bottom: 1.25rem;
+        }
+        h1 { font-weight: 700; margin-top: 0; font-size: 1.75rem; letter-spacing: -0.02em; }
+        h2 { font-size: 1.05rem; margin-top: 36px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        p.lede { color: var(--text-muted); font-size: 0.95rem; max-width: 640px; }
+        main a { color: #0070f3; text-decoration: none; }
+        main a:hover { text-decoration: underline; }
+
+        .panel {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--code-bg);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 560px) {
+            .controls-grid { grid-template-columns: 1fr; }
+        }
+        label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            border: 1px solid #d5dbe0;
+            border-radius: 4px;
+            background: #fff;
+            color: var(--text-color);
+        }
+        .run-btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .run-btn:hover { background: #e14a28; }
+        .run-btn:disabled { background: #d5dbe0; cursor: wait; }
+
+        #report { margin-top: 28px; }
+        .report-section {
+            border-left: 3px solid var(--border-color);
+            padding: 4px 0 4px 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+        .report-section h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin: 0 0 10px 0;
+        }
+        .verdict {
+            display: inline-block;
+            font-weight: 800;
+            padding: 2px 10px;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+        }
+        .verdict.allow { color: #fff; background: var(--ok-color); }
+        .verdict.disallow { color: #fff; background: var(--fail-color); }
+        .kv { font-size: 0.88rem; margin: 6px 0; word-break: break-word; }
+        .kv strong { color: var(--text-color); }
+        .kv .muted { color: var(--text-muted); }
+        pre {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        details summary {
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #0070f3;
+            margin: 8px 0;
+        }
+        .entity-chip {
+            display: inline-block;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            padding: 2px 8px;
+            font-size: 0.78rem;
+            margin: 2px 4px 2px 0;
+        }
+        .error-msg {
+            color: var(--fail-color);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="site-header">
+            <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
+            <nav aria-label="Main Navigation">
+                <a href="https://www.seosandbox.dev/about">/about</a>
+                <a href="https://www.seosandbox.dev/product">/product</a>
+                <a href="https://www.seosandbox.dev/post">/posts</a>
+                <a href="https://www.seosandbox.dev/crawler-lens">/crawler-lens</a>
+            </nav>
+        </header>
+
+        <div class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="https://www.seosandbox.dev/">/home</a>
+            <span>/crawler-lens</span>
+        </div>
+
+        <div class="status-badge">● Status: Live Experiment</div>
+        <h1>Crawler Lens</h1>
+        <p class="lede">Pick a real crawler user-agent from this site's <a href="/robots.txt">robots.txt</a> and a page from the sitemap. This tool live-fetches <code>robots.txt</code>, the page's raw HTML and <code>llms.txt</code> from this same origin and reports the actual access verdict and extracted signal &mdash; title, meta robots, canonical, JSON-LD entities and plain-text content &mdash; exactly as that bot would receive it. No mocked responses.</p>
+
+        <div class="panel">
+            <div class="controls-grid">
+                <div>
+                    <label for="bot-select">Crawler / user-agent</label>
+                    <select id="bot-select"></select>
+                </div>
+                <div>
+                    <label for="page-select">Target page</label>
+                    <select id="page-select"></select>
+                </div>
+            </div>
+            <button class="run-btn" id="run-btn">Run scan</button>
+        </div>
+
+        <div id="report"></div>
+
+        <h2>What this actually checks</h2>
+        <p class="lede" style="margin-top:-8px;">Access verdicts are computed with the standard longest-matching-rule algorithm (ties resolve to Allow) against whichever <code>User-agent</code> block matches, falling back to <code>User-agent: *</code>. Extracted signal is parsed straight out of the fetched HTML with <code>DOMParser</code> &mdash; the same raw markup a non-rendering crawler receives, since this site ships zero client-side rendering. If a fetch fails, it's most likely because this page isn't being served over HTTP (same-origin fetches don't resolve from a local <code>file://</code> preview).</p>
+
+        <footer>
+            // Built raw. Tracked transparently. 2026. // <a href="https://www.seosandbox.dev/sitemap">Sitemap</a>
+        </footer>
+    </main>
+
+    <script>
+    (function () {
+        var BOTS = [
+            { name: '*', label: 'Default crawler (User-agent: *)' },
+            { name: 'Googlebot', label: 'Googlebot (Google Search)' },
+            { name: 'Google-Extended', label: 'Google-Extended (Gemini / AI training)' },
+            { name: 'Bingbot', label: 'Bingbot (Microsoft Bing)' },
+            { name: 'Copilot', label: 'Copilot (Microsoft)' },
+            { name: 'GPTBot', label: 'GPTBot (OpenAI)' },
+            { name: 'ChatGPT-User', label: 'ChatGPT-User (OpenAI, on-demand)' },
+            { name: 'ClaudeBot', label: 'ClaudeBot (Anthropic)' },
+            { name: 'Claude-User', label: 'Claude-User (Anthropic, on-demand)' },
+            { name: 'Claude-SearchBot', label: 'Claude-SearchBot (Anthropic)' },
+            { name: 'PerplexityBot', label: 'PerplexityBot' },
+            { name: 'Perplexity-User', label: 'Perplexity-User (on-demand)' },
+            { name: 'Meta-ExternalAgent', label: 'Meta-ExternalAgent' },
+            { name: 'Applebot', label: 'Applebot' },
+            { name: 'Applebot-Extended', label: 'Applebot-Extended (AI training)' },
+            { name: 'Amazonbot', label: 'Amazonbot' },
+            { name: 'CCBot', label: 'CCBot (Common Crawl)' },
+            { name: 'Bytespider', label: 'Bytespider (ByteDance)' },
+            { name: 'Diffbot', label: 'Diffbot' },
+            { name: 'Cohere-ai', label: 'Cohere-ai' },
+            { name: 'YouBot', label: 'YouBot (You.com)' },
+            { name: 'SomeRandomBot99', label: 'Unlisted / hypothetical bot (tests * fallback)' }
+        ];
+
+        var PAGES = [
+            { label: 'Home (/)', path: '/' },
+            { label: 'About (/about)', path: '/about' },
+            { label: 'Product Schema (/product)', path: '/product' },
+            { label: 'Posts Index (/post)', path: '/post' },
+            { label: 'Post: Why Is The Sky Blue', path: '/post/why-is-the-sky-blue' },
+            { label: 'Sitemap (/sitemap)', path: '/sitemap' }
+        ];
+
+        var botSelect = document.getElementById('bot-select');
+        var pageSelect = document.getElementById('page-select');
+        var runBtn = document.getElementById('run-btn');
+        var reportEl = document.getElementById('report');
+
+        BOTS.forEach(function (b) {
+            var opt = document.createElement('option');
+            opt.value = b.name;
+            opt.textContent = b.label;
+            botSelect.appendChild(opt);
+        });
+        PAGES.forEach(function (p) {
+            var opt = document.createElement('option');
+            opt.value = p.path;
+            opt.textContent = p.label;
+            pageSelect.appendChild(opt);
+        });
+
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        function parseRobots(text) {
+            var lines = text.split('\n');
+            var rules = {}; // agentLower -> { allow: [], disallow: [], contentSignal: [] }
+            var currentAgents = [];
+            var groupOpenForDirectives = false;
+
+            function ensure(agent) {
+                var key = agent.toLowerCase();
+                if (!rules[key]) rules[key] = { allow: [], disallow: [], contentSignal: [] };
+                return rules[key];
+            }
+
+            lines.forEach(function (raw) {
+                var line = raw.split('#')[0].trim();
+                if (!line) { groupOpenForDirectives = false; return; }
+                var m = line.match(/^([A-Za-z-]+)\s*:\s*(.*)$/);
+                if (!m) return;
+                var field = m[1].toLowerCase();
+                var value = m[2].trim();
+
+                if (field === 'user-agent') {
+                    if (groupOpenForDirectives) {
+                        currentAgents = [value];
+                        groupOpenForDirectives = false;
+                    } else {
+                        currentAgents.push(value);
+                    }
+                } else if (field === 'allow') {
+                    currentAgents.forEach(function (a) { ensure(a).allow.push(value); });
+                    groupOpenForDirectives = true;
+                } else if (field === 'disallow') {
+                    currentAgents.forEach(function (a) { ensure(a).disallow.push(value); });
+                    groupOpenForDirectives = true;
+                } else if (field === 'content-signal') {
+                    currentAgents.forEach(function (a) { ensure(a).contentSignal.push(value); });
+                    groupOpenForDirectives = true;
+                }
+            });
+            return rules;
+        }
+
+        function longestMatch(list, path) {
+            var best = -1;
+            list.forEach(function (rule) {
+                if (rule === '') return;
+                if (path.indexOf(rule) === 0 && rule.length > best) best = rule.length;
+            });
+            return best;
+        }
+
+        function evaluateAccess(rules, botName, path) {
+            var key = botName.toLowerCase();
+            var matched = rules[key] ? botName : '*';
+            var set = rules[key] || rules['*'] || { allow: [], disallow: [], contentSignal: [] };
+
+            var allowLen = longestMatch(set.allow, path);
+            var disallowLen = longestMatch(set.disallow, path);
+            var allowed = disallowLen <= allowLen; // no rule at all (-1/-1) also resolves to allowed
+
+            return {
+                matchedBlock: matched,
+                allowed: allowed,
+                allowRules: set.allow,
+                disallowRules: set.disallow,
+                contentSignal: set.contentSignal
+            };
+        }
+
+        function extractSignals(html) {
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+
+            var title = doc.querySelector('title') ? doc.querySelector('title').textContent.trim() : '(none)';
+            var descEl = doc.querySelector('meta[name="description"]');
+            var description = descEl ? descEl.getAttribute('content') : '(none)';
+            var robotsEl = doc.querySelector('meta[name="robots"]');
+            var robotsMeta = robotsEl ? robotsEl.getAttribute('content') : '(not set — defaults to index, follow)';
+            var canonEl = doc.querySelector('link[rel="canonical"]');
+            var canonical = canonEl ? canonEl.getAttribute('href') : '(none)';
+
+            var ldScripts = Array.prototype.slice.call(doc.querySelectorAll('script[type="application/ld+json"]'));
+            var jsonLd = ldScripts.map(function (s) {
+                try { return { ok: true, data: JSON.parse(s.textContent) }; }
+                catch (e) { return { ok: false, error: e.message }; }
+            });
+
+            var entities = [];
+            jsonLd.forEach(function (block) {
+                if (!block.ok) return;
+                var nodes = block.data['@graph'] ? block.data['@graph'] : [block.data];
+                nodes.forEach(function (n) {
+                    if (n && n['@type']) entities.push({ type: n['@type'], id: n['@id'] || null });
+                });
+            });
+
+            var clone = doc.cloneNode(true);
+            Array.prototype.slice.call(clone.querySelectorAll('script, style, noscript')).forEach(function (n) { n.remove(); });
+            var text = (clone.body ? clone.body.textContent : '').replace(/\s+/g, ' ').trim();
+
+            return {
+                title: title,
+                description: description,
+                robotsMeta: robotsMeta,
+                canonical: canonical,
+                jsonLd: jsonLd,
+                entities: entities,
+                wordCount: text ? text.split(' ').length : 0,
+                textPreview: text.slice(0, 380) + (text.length > 380 ? '…' : '')
+            };
+        }
+
+        function renderReport(botName, path, access, signals, llmsHit, fetchError) {
+            if (fetchError) {
+                reportEl.innerHTML =
+                    '<div class="panel"><p class="error-msg">Scan failed: ' + esc(fetchError) +
+                    '</p><p class="kv muted">This tool needs same-origin HTTP access to robots.txt, the target page, and llms.txt. It will not work from a local file:// preview — it works once this page is served (e.g. on the deployed site).</p></div>';
+                return;
+            }
+
+            var verdictClass = access.allowed ? 'allow' : 'disallow';
+            var verdictText = access.allowed ? 'ALLOWED' : 'DISALLOWED';
+
+            var html = '';
+
+            html += '<div class="report-section"><h3>01 // Access Control</h3>';
+            html += '<div class="kv"><span class="verdict ' + verdictClass + '">' + verdictText + '</span></div>';
+            html += '<div class="kv"><strong>User-agent:</strong> ' + esc(botName) + '</div>';
+            html += '<div class="kv"><strong>Path:</strong> ' + esc(path) + '</div>';
+            html += '<div class="kv"><strong>Matched robots.txt block:</strong> User-agent: ' + esc(access.matchedBlock) + '</div>';
+            html += '<div class="kv muted">Allow rules: ' + (access.allowRules.length ? esc(access.allowRules.join(', ')) : '(none)') + '</div>';
+            html += '<div class="kv muted">Disallow rules: ' + (access.disallowRules.length ? esc(access.disallowRules.join(', ')) : '(none)') + '</div>';
+            if (access.contentSignal.length) {
+                html += '<div class="kv"><strong>Content-Signal:</strong> ' + esc(access.contentSignal.join('; ')) + '</div>';
+            }
+            html += '</div>';
+
+            html += '<div class="report-section"><h3>02 // Page-Level Directives</h3>';
+            html += '<div class="kv"><strong>&lt;title&gt;:</strong> ' + esc(signals.title) + '</div>';
+            html += '<div class="kv"><strong>meta description:</strong> ' + esc(signals.description) + '</div>';
+            html += '<div class="kv"><strong>meta robots:</strong> ' + esc(signals.robotsMeta) + '</div>';
+            html += '<div class="kv"><strong>canonical:</strong> ' + esc(signals.canonical) + '</div>';
+            html += '</div>';
+
+            html += '<div class="report-section"><h3>03 // Structured Data Entities</h3>';
+            if (signals.entities.length) {
+                signals.entities.forEach(function (e) {
+                    html += '<span class="entity-chip">' + esc(e.type) + (e.id ? ' &middot; ' + esc(e.id.split('#').pop() || e.id) : '') + '</span>';
+                });
+                var badBlocks = signals.jsonLd.filter(function (b) { return !b.ok; });
+                if (badBlocks.length) {
+                    html += '<div class="kv error-msg">' + badBlocks.length + ' JSON-LD block(s) failed to parse.</div>';
+                }
+                html += '<details><summary>View raw JSON-LD (' + signals.jsonLd.length + ' block' + (signals.jsonLd.length === 1 ? '' : 's') + ')</summary>';
+                signals.jsonLd.forEach(function (b) {
+                    html += '<pre>' + esc(b.ok ? JSON.stringify(b.data, null, 2) : 'Parse error: ' + b.error) + '</pre>';
+                });
+                html += '</details>';
+            } else {
+                html += '<div class="kv muted">No JSON-LD found on this page.</div>';
+            }
+            html += '</div>';
+
+            html += '<div class="report-section"><h3>04 // Content Signal Extraction</h3>';
+            html += '<div class="kv"><strong>Visible word count:</strong> ' + signals.wordCount + '</div>';
+            html += '<pre>' + esc(signals.textPreview) + '</pre>';
+            html += '</div>';
+
+            html += '<div class="report-section"><h3>05 // llms.txt Coverage</h3>';
+            html += '<div class="kv"><span class="verdict ' + (llmsHit ? 'allow' : 'disallow') + '">' + (llmsHit ? 'LISTED' : 'NOT LISTED') + '</span></div>';
+            html += '<div class="kv muted">' + (path === '/' ? 'The root domain is described in the llms.txt header rather than as a discrete link entry.' : 'Checked whether this page\'s canonical URL appears anywhere in /llms.txt.') + '</div>';
+            html += '</div>';
+
+            reportEl.innerHTML = html;
+        }
+
+        function run() {
+            var botName = botSelect.value;
+            var path = pageSelect.value;
+
+            runBtn.disabled = true;
+            runBtn.textContent = 'Scanning…';
+            reportEl.innerHTML = '<div class="panel"><p class="kv muted">Fetching robots.txt, page HTML and llms.txt from this origin…</p></div>';
+
+            Promise.all([
+                fetch('/robots.txt').then(function (r) { if (!r.ok) throw new Error('robots.txt → HTTP ' + r.status); return r.text(); }),
+                fetch(path).then(function (r) { if (!r.ok) throw new Error(path + ' → HTTP ' + r.status); return r.text(); }),
+                fetch('/llms.txt').then(function (r) { if (!r.ok) throw new Error('llms.txt → HTTP ' + r.status); return r.text(); })
+            ]).then(function (results) {
+                var robotsTxt = results[0], pageHtml = results[1], llmsTxt = results[2];
+                var rules = parseRobots(robotsTxt);
+                var access = evaluateAccess(rules, botName, path);
+                var signals = extractSignals(pageHtml);
+                var canonicalGuess = 'https://www.seosandbox.dev' + (path === '/' ? '/' : path);
+                var llmsHit = llmsTxt.indexOf(canonicalGuess) !== -1 || (signals.canonical && llmsTxt.indexOf(signals.canonical) !== -1);
+                renderReport(botName, path, access, signals, llmsHit, null);
+            }).catch(function (err) {
+                renderReport(botName, path, null, null, false, err.message);
+            }).finally(function () {
+                runBtn.disabled = false;
+                runBtn.textContent = 'Run scan';
+            });
+        }
+
+        runBtn.addEventListener('click', run);
+    })();
+    </script>
+</body>
+</html>
