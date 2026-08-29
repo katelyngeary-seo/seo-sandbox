@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Primary Metadata -->
+    <title>AI Visibility Quiz // Is Your Site Ready for AI Search? | SEO Sandbox</title>
+    <meta name="description" content="A free 10-question quiz that scores whether your site is actually visible to ChatGPT, Perplexity, Google AI Overviews and Claude — covering robots.txt, llms.txt, structured data and content signals.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Indexing & Canonical -->
+    <link rel="canonical" href="https://www.seosandbox.dev/quiz">
+
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Visibility Quiz // Is Your Site Ready for AI Search?">
+    <meta property="og:description" content="A free 10-question quiz that scores whether your site is actually visible to ChatGPT, Perplexity, Google AI Overviews and Claude.">
+    <meta property="og:url" content="https://www.seosandbox.dev/quiz">
+    <meta property="og:site_name" content="SEO Sandbox">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI Visibility Quiz // Is Your Site Ready for AI Search?">
+    <meta name="twitter:description" content="A free 10-question quiz that scores whether your site is actually visible to ChatGPT, Perplexity, Google AI Overviews and Claude.">
+
+    <!-- Structured Data (Schema.org Graph: WebPage, BreadcrumbList) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.seosandbox.dev/quiz#webpage",
+          "url": "https://www.seosandbox.dev/quiz",
+          "name": "AI Visibility Quiz // Is Your Site Ready for AI Search?",
+          "description": "A free 10-question quiz that scores whether your site is actually visible to ChatGPT, Perplexity, Google AI Overviews and Claude.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://www.seosandbox.dev/#website",
+            "url": "https://www.seosandbox.dev/",
+            "name": "SEO Sandbox"
+          },
+          "breadcrumb": {
+            "@id": "https://www.seosandbox.dev/quiz#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.seosandbox.dev/quiz#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "home", "item": "https://www.seosandbox.dev/" },
+            { "@type": "ListItem", "position": 2, "name": "quiz", "item": "https://www.seosandbox.dev/quiz" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1f26;
+            --text-muted: #606f7b;
+            --accent-color: #ff5a36;
+            --ok-color: #0a7d3a;
+            --warn-color: #b7791f;
+            --fail-color: #c02626;
+            --border-color: #eff2f5;
+            --code-bg: #f8fafc;
+            --max-width: 640px;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
+        }
+        body {
+            line-height: 1.6;
+            max-width: var(--max-width);
+            margin: 40px auto;
+            padding: 0 20px 80px;
+            background-color: var(--bg-color);
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .site-header nav { display: flex; gap: 16px; flex-wrap: wrap; }
+        .site-header a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .site-header a:hover { text-decoration: underline; }
+        .breadcrumbs { display: flex; gap: 8px; margin-bottom: 24px; font-size: 0.95em; }
+        .breadcrumbs a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs span { color: var(--text-muted); font-weight: 500; }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--accent-color) !important;
+            margin-bottom: 1.25rem;
+        }
+        h1 { font-weight: 700; margin-top: 0; font-size: 1.75rem; letter-spacing: -0.02em; }
+        p.lede { color: var(--text-muted); font-size: 0.95rem; }
+        main a { color: #0070f3; text-decoration: none; }
+        main a:hover { text-decoration: underline; }
+
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--code-bg);
+            padding: 24px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none !important;
+        }
+        .btn:hover { background: #e14a28; }
+        .btn.secondary {
+            background: #fff;
+            color: var(--text-color) !important;
+            border: 1px solid #d5dbe0;
+        }
+        .btn.secondary:hover { background: #f1f3f5; }
+        .btn-row { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+        .btn-row .btn { flex: 1; min-width: 140px; }
+
+        /* Progress */
+        .progress-track {
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 22px;
+        }
+        .progress-fill { height: 100%; background: var(--accent-color); transition: width 0.25s ease; }
+        .progress-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .question-text { font-size: 1.15rem; font-weight: 700; margin: 0 0 20px 0; line-height: 1.4; }
+        .option-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            background: #fff;
+            border: 1px solid #d5dbe0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        .option-btn:hover { border-color: var(--accent-color); background: #fff6f4; }
+
+        /* Result card */
+        .score-card {
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 30px 24px;
+            text-align: center;
+        }
+        .score-card.ok { background: #f0f9f3; border-color: var(--ok-color); }
+        .score-card.warn { background: #fdf6e9; border-color: var(--warn-color); }
+        .score-card.fail { background: #fbeceb; border-color: var(--fail-color); }
+        .score-number { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+        .score-card.ok .score-number { color: var(--ok-color); }
+        .score-card.warn .score-number { color: var(--warn-color); }
+        .score-card.fail .score-number { color: var(--fail-color); }
+        .tier-label { font-size: 1.15rem; font-weight: 800; margin-top: 10px; }
+        .score-card.ok .tier-label { color: var(--ok-color); }
+        .score-card.warn .tier-label { color: var(--warn-color); }
+        .score-card.fail .tier-label { color: var(--fail-color); }
+        .tier-quip { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; max-width: 440px; margin-left: auto; margin-right: auto; }
+        .card-watermark {
+            margin-top: 20px;
+            padding-top: 14px;
+            border-top: 1px dashed #c7cdd3;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+
+        .recs { margin-top: 24px; }
+        .recs h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin: 0 0 12px 0; border: none; padding: 0; }
+        .recs ul { margin: 0; padding-left: 20px; font-size: 0.9rem; }
+        .recs li { margin-bottom: 8px; }
+
+        .copy-toast { font-size: 0.8rem; color: var(--ok-color); font-weight: 600; margin-top: 8px; display: none; }
+
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="site-header">
+            <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
+            <nav aria-label="Main Navigation">
+                <a href="https://www.seosandbox.dev/about">/about</a>
+                <a href="https://www.seosandbox.dev/product">/product</a>
+                <a href="https://www.seosandbox.dev/post">/posts</a>
+                <a href="https://www.seosandbox.dev/crawler-lens">/crawler-lens</a>
+                <a href="https://www.seosandbox.dev/aeo-readiness">/aeo-readiness</a>
+                <a href="https://www.seosandbox.dev/quiz">/quiz</a>
+            </nav>
+        </header>
+
+        <div class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="https://www.seosandbox.dev/">/home</a>
+            <span>/quiz</span>
+        </div>
+
+        <div class="status-badge">● Status: Live Experiment</div>
+        <h1 id="page-h1">AI Visibility Quiz</h1>
+        <p class="lede" id="page-lede">10 questions. About 90 seconds. Find out whether ChatGPT, Perplexity, Google AI Overviews and Claude can actually find, parse and cite your site &mdash; or whether you're invisible to the systems that increasingly answer questions before anyone clicks a blue link.</p>
+
+        <div id="quiz-app"></div>
+
+        <footer>
+            // Built raw. Tracked transparently. 2026. // <a href="https://www.seosandbox.dev/sitemap">Sitemap</a>
+        </footer>
+    </main>
+
+    <script>
+    (function () {
+        var QUIZ_URL = 'https://www.seosandbox.dev/quiz';
+
+        var QUESTIONS = [
+            {
+                q: "Does your robots.txt explicitly allow AI crawlers like GPTBot, ClaudeBot and PerplexityBot?",
+                options: [
+                    { label: "Yes — checked it recently", pts: 2 },
+                    { label: "Not sure / never checked", pts: 1 },
+                    { label: "No, or I'm blocking them", pts: 0 }
+                ]
+            },
+            {
+                q: "Do you have an llms.txt file at your domain root?",
+                options: [
+                    { label: "Yes", pts: 2 },
+                    { label: "No, but I've heard of it", pts: 1 },
+                    { label: "What's an llms.txt?", pts: 0 }
+                ]
+            },
+            {
+                q: "Does your homepage (and other key pages) carry valid JSON-LD structured data?",
+                options: [
+                    { label: "Yes, on every important page", pts: 2 },
+                    { label: "Only on some pages", pts: 1 },
+                    { label: "No structured data at all", pts: 0 }
+                ]
+            },
+            {
+                q: "Do your pages have unique title tags and meta descriptions, not duplicated site-wide?",
+                options: [
+                    { label: "Yes, every page", pts: 2 },
+                    { label: "Mostly, with a few duplicates", pts: 1 },
+                    { label: "Mostly templated / duplicated", pts: 0 }
+                ]
+            },
+            {
+                q: "Is your core content readable without JavaScript (view-source shows real text, not an empty shell)?",
+                options: [
+                    { label: "Yes — static or server-rendered", pts: 2 },
+                    { label: "Partially — some client-rendered content", pts: 1 },
+                    { label: "No — mostly client-side rendered", pts: 0 }
+                ]
+            },
+            {
+                q: "Do you answer specific questions directly and early in your content?",
+                options: [
+                    { label: "Yes, direct answers up top", pts: 2 },
+                    { label: "Sometimes", pts: 1 },
+                    { label: "No, lots of preamble first", pts: 0 }
+                ]
+            },
+            {
+                q: "Have you checked whether ChatGPT, Perplexity or Google AI Overviews have ever cited your site?",
+                options: [
+                    { label: "Yes — and they have", pts: 2 },
+                    { label: "Yes — but they haven't yet", pts: 1 },
+                    { label: "Never checked", pts: 0 }
+                ]
+            },
+            {
+                q: "Does every page carry a canonical tag pointing to the correct URL?",
+                options: [
+                    { label: "Yes, consistently", pts: 2 },
+                    { label: "Not sure", pts: 1 },
+                    { label: "No canonical tags", pts: 0 }
+                ]
+            },
+            {
+                q: "Do you have FAQ-style content anywhere — clear question headers with direct answers?",
+                options: [
+                    { label: "Yes", pts: 2 },
+                    { label: "A little", pts: 1 },
+                    { label: "No", pts: 0 }
+                ]
+            },
+            {
+                q: "How often do you refresh or update your existing content?",
+                options: [
+                    { label: "Regularly — within the last few months", pts: 2 },
+                    { label: "Occasionally — within the year", pts: 1 },
+                    { label: "Rarely — set and forget", pts: 0 }
+                ]
+            }
+        ];
+
+        var MAX_SCORE = QUESTIONS.length * 2;
+
+        var TIERS = [
+            {
+                min: 85, tier: 'ok', label: 'AI Whisperer',
+                quip: "Answer engines already know your name. You're doing the fundamentals right — now it's about defending that edge as more sites catch up.",
+                recs: [
+                    "Audit individual pages with the <a href=\"/aeo-readiness\">AEO Readiness Score</a> tool to catch page-level gaps.",
+                    "Check how specific crawlers see your priority pages with <a href=\"/crawler-lens\">Crawler Lens</a>.",
+                    "Keep refreshing your best content — recency is a real signal for citation-based systems."
+                ]
+            },
+            {
+                min: 65, tier: 'ok', label: 'Answer Engine Ready',
+                quip: "Solid bones. A few structural gaps stand between you and consistent AI citations.",
+                recs: [
+                    "Add or expand JSON-LD structured data on pages that don't have it yet.",
+                    "Publish an llms.txt if you don't have one — it's a low-effort, high-signal fix.",
+                    "Run your top pages through <a href=\"/aeo-readiness\">AEO Readiness Score</a> to find exactly what's missing."
+                ]
+            },
+            {
+                min: 40, tier: 'warn', label: 'On the Radar',
+                quip: "Bots can probably find you. Whether they trust you enough to cite is a different question entirely.",
+                recs: [
+                    "Confirm your robots.txt isn't accidentally blocking GPTBot, ClaudeBot or PerplexityBot.",
+                    "Restructure key pages to answer the core question in the first few sentences.",
+                    "Add structured data (Schema.org JSON-LD) to your most important pages first."
+                ]
+            },
+            {
+                min: 0, tier: 'fail', label: 'Invisible to Bots',
+                quip: "Right now, AI search largely doesn't know you exist. The good news: the fixes here are cheap relative to the payoff.",
+                recs: [
+                    "Start with an llms.txt and basic JSON-LD — the highest-leverage, lowest-effort fixes.",
+                    "Verify AI crawlers aren't disallowed in robots.txt.",
+                    "Rewrite your most important page to lead with a direct, quotable answer."
+                ]
+            }
+        ];
+
+        var state = { screen: 'intro', index: 0, score: 0 };
+        var appEl = document.getElementById('quiz-app');
+        var h1El = document.getElementById('page-h1');
+        var ledeEl = document.getElementById('page-lede');
+
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        function getTier(pct) {
+            for (var i = 0; i < TIERS.length; i++) {
+                if (pct >= TIERS[i].min) return TIERS[i];
+            }
+            return TIERS[TIERS.length - 1];
+        }
+
+        function render() {
+            if (state.screen === 'intro') {
+                h1El.textContent = 'AI Visibility Quiz';
+                ledeEl.style.display = '';
+                appEl.innerHTML =
+                    '<div class="card">' +
+                    '<button class="btn" id="start-btn">Start the quiz</button>' +
+                    '</div>';
+                document.getElementById('start-btn').addEventListener('click', function () {
+                    state.screen = 'question';
+                    state.index = 0;
+                    state.score = 0;
+                    render();
+                });
+                return;
+            }
+
+            if (state.screen === 'question') {
+                ledeEl.style.display = 'none';
+                h1El.textContent = 'AI Visibility Quiz';
+                var q = QUESTIONS[state.index];
+                var pct = Math.round((state.index / QUESTIONS.length) * 100);
+                var html = '<div class="card">';
+                html += '<div class="progress-label">Question ' + (state.index + 1) + ' of ' + QUESTIONS.length + '</div>';
+                html += '<div class="progress-track"><div class="progress-fill" style="width:' + pct + '%"></div></div>';
+                html += '<div class="question-text">' + esc(q.q) + '</div>';
+                q.options.forEach(function (opt, i) {
+                    html += '<button class="option-btn" data-pts="' + opt.pts + '">' + esc(opt.label) + '</button>';
+                });
+                html += '</div>';
+                appEl.innerHTML = html;
+
+                Array.prototype.slice.call(appEl.querySelectorAll('.option-btn')).forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        state.score += parseInt(btn.getAttribute('data-pts'), 10);
+                        if (state.index < QUESTIONS.length - 1) {
+                            state.index++;
+                            render();
+                        } else {
+                            state.screen = 'results';
+                            render();
+                        }
+                    });
+                });
+                return;
+            }
+
+            if (state.screen === 'results') {
+                h1El.textContent = 'Your AI Visibility Score';
+                ledeEl.style.display = 'none';
+                var pct = Math.round((state.score / MAX_SCORE) * 100);
+                var tier = getTier(pct);
+                var shareText = 'I scored ' + pct + '% (' + tier.label + ') on the AI Visibility Quiz — is your site actually visible to ChatGPT, Perplexity and Google AI Overviews?';
+                var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(QUIZ_URL);
+                var linkedinUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(QUIZ_URL);
+                var captionText = shareText + ' Take it: ' + QUIZ_URL;
+
+                var html = '';
+                html += '<div class="score-card ' + tier.tier + '">';
+                html += '<div class="score-number">' + pct + '%</div>';
+                html += '<div class="tier-label">' + esc(tier.label) + '</div>';
+                html += '<div class="tier-quip">' + esc(tier.quip) + '</div>';
+                html += '<div class="card-watermark">seosandbox.dev/quiz &middot; AI Visibility Quiz</div>';
+                html += '</div>';
+
+                html += '<div class="recs"><h2>Where to focus next</h2><ul>';
+                tier.recs.forEach(function (r) { html += '<li>' + r + '</li>'; });
+                html += '</ul></div>';
+
+                html += '<div class="btn-row">';
+                html += '<a class="btn" href="' + twitterUrl + '" target="_blank" rel="noopener noreferrer">Share on X</a>';
+                html += '<a class="btn secondary" href="' + linkedinUrl + '" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>';
+                html += '</div>';
+                html += '<div class="btn-row">';
+                html += '<button class="btn secondary" id="copy-btn">Copy result caption</button>';
+                html += '<button class="btn secondary" id="retake-btn">Retake quiz</button>';
+                html += '</div>';
+                html += '<div class="copy-toast" id="copy-toast">Copied — paste it into your LinkedIn post.</div>';
+
+                appEl.innerHTML = html;
+
+                document.getElementById('retake-btn').addEventListener('click', function () {
+                    state.screen = 'intro';
+                    render();
+                });
+                document.getElementById('copy-btn').addEventListener('click', function () {
+                    var toast = document.getElementById('copy-toast');
+                    function showToast() { toast.style.display = 'block'; setTimeout(function () { toast.style.display = 'none'; }, 3000); }
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(captionText).then(showToast).catch(function () {
+                            window.prompt('Copy this text:', captionText);
+                        });
+                    } else {
+                        window.prompt('Copy this text:', captionText);
+                    }
+                });
+                return;
+            }
+        }
+
+        render();
+    })();
+    </script>
+</body>
+</html>

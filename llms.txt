@@ -7,6 +7,7 @@
 - [AI Posts Index](https://www.seosandbox.dev/post): Master index of unedited conversation logs, cross-model analysis and self-representation tests across major LLMs.
 - [Crawler Lens](https://www.seosandbox.dev/crawler-lens): Live tool that checks robots.txt access rules for real crawler user-agents and extracts the title, meta robots, canonical, JSON-LD and plain-text signal each bot actually receives on a given page.
 - [AEO Readiness Score](https://www.seosandbox.dev/aeo-readiness): Live scorecard that rolls up indexability, canonical hygiene, AI-crawler access, structured data validity, title/description/H1 presence, content substance and llms.txt coverage into a single readiness score per page.
+- [AI Visibility Quiz](https://www.seosandbox.dev/quiz): Free 10-question self-assessment quiz that scores whether a visitor's own site is visible to AI search systems, with a shareable result card and tailored recommendations.
 
 ## Complete Log Archive (AI Conversations & Technical Analysis)
 
