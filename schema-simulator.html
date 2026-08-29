@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Primary Metadata -->
+    <title>Schema-to-Answer Simulator // JSON-LD AEO Check | SEO Sandbox</title>
+    <meta name="description" content="Paste JSON-LD or a page's HTML and see the structural issues an answer engine would trip on, plus a rule-based simulation of the facts it would likely extract from your schema.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Indexing & Canonical -->
+    <link rel="canonical" href="https://www.seosandbox.dev/schema-simulator">
+
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Schema-to-Answer Simulator // JSON-LD AEO Check">
+    <meta property="og:description" content="Paste JSON-LD and see the structural issues an answer engine would trip on, plus a rule-based simulation of the facts it would likely extract from your schema.">
+    <meta property="og:url" content="https://www.seosandbox.dev/schema-simulator">
+    <meta property="og:site_name" content="SEO Sandbox">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Schema-to-Answer Simulator // JSON-LD AEO Check">
+    <meta name="twitter:description" content="Paste JSON-LD and see the structural issues an answer engine would trip on, plus a rule-based simulation of the facts it would likely extract from your schema.">
+
+    <!-- Structured Data (Schema.org Graph: WebPage, BreadcrumbList) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.seosandbox.dev/schema-simulator#webpage",
+          "url": "https://www.seosandbox.dev/schema-simulator",
+          "name": "Schema-to-Answer Simulator // JSON-LD AEO Check",
+          "description": "Paste JSON-LD or a page's HTML and see the structural issues an answer engine would trip on, plus a rule-based simulation of the facts it would likely extract from your schema.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://www.seosandbox.dev/#website",
+            "url": "https://www.seosandbox.dev/",
+            "name": "SEO Sandbox"
+          },
+          "breadcrumb": {
+            "@id": "https://www.seosandbox.dev/schema-simulator#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.seosandbox.dev/schema-simulator#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "home", "item": "https://www.seosandbox.dev/" },
+            { "@type": "ListItem", "position": 2, "name": "schema-simulator", "item": "https://www.seosandbox.dev/schema-simulator" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1f26;
+            --text-muted: #606f7b;
+            --accent-color: #ff5a36;
+            --ok-color: #0a7d3a;
+            --warn-color: #b7791f;
+            --fail-color: #c02626;
+            --border-color: #eff2f5;
+            --code-bg: #f8fafc;
+            --max-width: 760px;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
+        }
+        body {
+            line-height: 1.6;
+            max-width: var(--max-width);
+            margin: 40px auto;
+            padding: 0 20px 80px;
+            background-color: var(--bg-color);
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .site-header nav { display: flex; gap: 16px; flex-wrap: wrap; }
+        .site-header a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .site-header a:hover { text-decoration: underline; }
+        .breadcrumbs { display: flex; gap: 8px; margin-bottom: 24px; font-size: 0.95em; }
+        .breadcrumbs a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs span { color: var(--text-muted); font-weight: 500; }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--accent-color) !important;
+            margin-bottom: 1.25rem;
+        }
+        h1 { font-weight: 700; margin-top: 0; font-size: 1.75rem; letter-spacing: -0.02em; }
+        h2 { font-size: 1.05rem; margin-top: 36px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        p.lede { color: var(--text-muted); font-size: 0.95rem; max-width: 640px; }
+        main a { color: #0070f3; text-decoration: none; }
+        main a:hover { text-decoration: underline; }
+
+        .panel {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--code-bg);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        label.optional::after {
+            content: ' (optional)';
+            text-transform: none;
+            letter-spacing: normal;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 0.82rem;
+            border: 1px solid #d5dbe0;
+            border-radius: 4px;
+            background: #fff;
+            color: var(--text-color);
+            resize: vertical;
+            line-height: 1.5;
+        }
+        #schema-input { height: 220px; }
+        #content-input { height: 90px; margin-top: 18px; }
+        .run-btn {
+            margin-top: 16px;
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .run-btn:hover { background: #e14a28; }
+        .run-btn:disabled { background: #d5dbe0; cursor: wait; }
+        .sample-link {
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
+            font-size: 0.78rem;
+            color: #0070f3;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .sample-link:hover { text-decoration: underline; }
+
+        #report { margin-top: 28px; }
+
+        .score-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .score-card.ok { background: #f0f9f3; border-color: #bfe3cc; }
+        .score-card.warn { background: #fdf6e9; border-color: #f0dba8; }
+        .score-card.fail { background: #fbeceb; border-color: #f0bdb8; }
+        .score-number { font-size: 2.75rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+        .score-card.ok .score-number { color: var(--ok-color); }
+        .score-card.warn .score-number { color: var(--warn-color); }
+        .score-card.fail .score-number { color: var(--fail-color); }
+        .score-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+        .score-card.ok .score-label { color: var(--ok-color); }
+        .score-card.warn .score-label { color: var(--warn-color); }
+        .score-card.fail .score-label { color: var(--fail-color); }
+        .score-sub { font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; }
+
+        .check-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            border-left: 3px solid var(--border-color);
+            padding: 10px 0 10px 1.25rem;
+            margin-bottom: 4px;
+        }
+        .check-row.pass { border-left-color: var(--ok-color); }
+        .check-row.fail { border-left-color: var(--fail-color); }
+        .check-row.warn { border-left-color: var(--warn-color); }
+        .check-icon { font-weight: 800; font-size: 0.95rem; width: 20px; flex-shrink: 0; }
+        .check-row.pass .check-icon { color: var(--ok-color); }
+        .check-row.fail .check-icon { color: var(--fail-color); }
+        .check-row.warn .check-icon { color: var(--warn-color); }
+        .check-body strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
+        .check-body span { font-size: 0.82rem; color: var(--text-muted); word-break: break-word; }
+
+        .sim-panel {
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+            background: var(--code-bg);
+            padding: 18px 20px;
+            margin-top: 12px;
+        }
+        .sim-entity {
+            margin-bottom: 18px;
+        }
+        .sim-entity:last-child { margin-bottom: 0; }
+        .sim-entity-type {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 6px;
+        }
+        .sim-entity p {
+            font-size: 0.88rem;
+            margin: 0 0 6px 0;
+            color: var(--text-color);
+        }
+        .sim-qa { margin: 6px 0; padding-left: 12px; border-left: 2px solid var(--border-color); }
+        .sim-qa div { font-size: 0.86rem; margin-bottom: 2px; }
+        .sim-note { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px; }
+
+        .error-msg { color: var(--fail-color); font-size: 0.88rem; font-weight: 600; }
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="site-header">
+            <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
+            <nav aria-label="Main Navigation">
+                <a href="https://www.seosandbox.dev/about">/about</a>
+                <a href="https://www.seosandbox.dev/product">/product</a>
+                <a href="https://www.seosandbox.dev/post">/posts</a>
+                <a href="https://www.seosandbox.dev/crawler-lens">/crawler-lens</a>
+                <a href="https://www.seosandbox.dev/aeo-readiness">/aeo-readiness</a>
+                <a href="https://www.seosandbox.dev/schema-simulator">/schema-simulator</a>
+                <a href="https://www.seosandbox.dev/quiz">/quiz</a>
+                <a href="https://www.seosandbox.dev/generator">/generator</a>
+            </nav>
+        </header>
+
+        <div class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="https://www.seosandbox.dev/">/home</a>
+            <span>/schema-simulator</span>
+        </div>
+
+        <div class="status-badge">● Status: Live Experiment</div>
+        <h1>Schema-to-Answer Simulator</h1>
+        <p class="lede">Paste raw JSON-LD, or a full page's HTML (it'll pull the <code>&lt;script type="application/ld+json"&gt;</code> blocks out for you). This runs entirely client-side &mdash; nothing is sent anywhere. It flags missing/conflicting fields per schema.org type, then renders a rule-based approximation of the "key facts" an answer engine would likely lift out of your markup. It's not a live model call, and it won't tell you whether you'll get cited &mdash; it shows you what's structurally there to extract, and where the schema is ambiguous, incomplete, or contradicts itself.</p>
+
+        <div class="panel">
+            <label for="schema-input">JSON-LD or page HTML</label>
+            <textarea id="schema-input" placeholder='Paste JSON-LD (a single object, an array, or a full &lt;script type="application/ld+json"&gt; block) &mdash; or paste the whole page source.'></textarea>
+            <div style="margin-top:6px;"><button type="button" class="sample-link" id="sample-btn">Load a sample Product schema instead</button></div>
+
+            <label for="content-input" class="optional" style="margin-top:18px;">Page's visible text</label>
+            <textarea id="content-input" placeholder="Optional: paste the page's visible body copy. Lets the simulator flag facts your schema claims (price, name, rating…) that don't actually appear anywhere in the content a reader sees."></textarea>
+
+            <button class="run-btn" id="run-btn">Run simulation</button>
+        </div>
+
+        <div id="report"></div>
+
+        <h2>How this works</h2>
+        <p class="lede" style="margin-top:-8px;">Each JSON-LD block is parsed and flattened (including <code>@graph</code> nodes). For entities of a recognized type &mdash; Product, Article/BlogPosting, FAQPage, HowTo, Organization/LocalBusiness, Review, WebSite, Person, BreadcrumbList &mdash; the simulator checks for schema.org's required and commonly-expected properties, flags duplicate untagged entities of the same type (which gives an LLM no way to tell which is the page's actual subject), and cross-checks key values against your pasted visible text when you provide it. The "simulated extraction" below is hand-written per type based on what those properties structurally contain, not an actual model inference &mdash; treat it as a lower bound on what a real answer engine could pull out, not a prediction of what it will say.</p>
+
+        <footer>
+            // Built raw. Tracked transparently. 2026. // <a href="https://www.seosandbox.dev/sitemap">Sitemap</a>
+        </footer>
+    </main>
+
+    <script>
+    (function () {
+        var SAMPLE_SCHEMA = JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Trail-Ready Ceramic Mug",
+            "offers": {
+                "@type": "Offer",
+                "price": "24.00",
+                "priceCurrency": "USD"
+            }
+        }, null, 2);
+
+        var schemaInput = document.getElementById('schema-input');
+        var contentInput = document.getElementById('content-input');
+        var runBtn = document.getElementById('run-btn');
+        var sampleBtn = document.getElementById('sample-btn');
+        var reportEl = document.getElementById('report');
+
+        sampleBtn.addEventListener('click', function () {
+            schemaInput.value = SAMPLE_SCHEMA;
+        });
+
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        function truncate(s, n) {
+            s = String(s == null ? '' : s);
+            return s.length > n ? s.slice(0, n).trim() + '…' : s;
+        }
+
+        function isObj(v) { return v && typeof v === 'object' && !Array.isArray(v); }
+        function asArray(v) { return v == null ? [] : (Array.isArray(v) ? v : [v]); }
+
+        function get(obj, path) {
+            var parts = path.split('.');
+            var cur = obj;
+            for (var i = 0; i < parts.length; i++) {
+                if (cur == null) return undefined;
+                cur = cur[parts[i]];
+            }
+            return cur;
+        }
+
+        function nameOf(v) {
+            if (v == null) return '';
+            if (typeof v === 'string') return v;
+            if (isObj(v)) return v.name || v['@id'] || '';
+            if (Array.isArray(v)) return v.map(nameOf).filter(Boolean).join(', ');
+            return String(v);
+        }
+
+        // ---- Extraction: pull JSON-LD blocks out of raw input (HTML or bare JSON) ----
+        function extractBlocks(input) {
+            input = (input || '').trim();
+            if (!input) return [];
+            var blocks = [];
+            if (/<script[^>]*application\/ld\+json/i.test(input)) {
+                var doc = new DOMParser().parseFromString(input, 'text/html');
+                var scripts = doc.querySelectorAll('script[type="application/ld+json"]');
+                scripts.forEach(function (s) { blocks.push(s.textContent); });
+                if (blocks.length === 0) blocks.push(input);
+            } else {
+                blocks.push(input);
+            }
+            return blocks;
+        }
+
+        function flattenNodes(data) {
+            var top = data['@graph'] ? asArray(data['@graph']) : asArray(data);
+            var nodes = [];
+            top.forEach(function (n) {
+                if (isObj(n)) nodes.push(n);
+            });
+            return nodes;
+        }
+
+        function typesOf(node) {
+            return asArray(node['@type']).filter(function (t) { return typeof t === 'string'; });
+        }
+
+        // ---- Required / recommended property maps per schema.org type ----
+        var SCHEMA_RULES = {
+            'Product': {
+                required: ['name'],
+                recommended: ['description', 'image', 'offers', 'brand'],
+                labels: { 'offers': 'offers (price/availability)' }
+            },
+            'Article': { required: ['headline'], recommended: ['author', 'datePublished', 'image', 'publisher'] },
+            'BlogPosting': { required: ['headline'], recommended: ['author', 'datePublished', 'image', 'publisher'] },
+            'NewsArticle': { required: ['headline'], recommended: ['author', 'datePublished', 'image', 'publisher'] },
+            'FAQPage': { required: ['mainEntity'], recommended: [] },
+            'HowTo': { required: ['name', 'step'], recommended: ['totalTime', 'estimatedCost'] },
+            'Organization': { required: ['name'], recommended: ['url', 'logo', 'sameAs'] },
+            'LocalBusiness': { required: ['name'], recommended: ['address', 'telephone', 'url'] },
+            'Review': { required: ['reviewRating', 'author'], recommended: ['itemReviewed', 'reviewBody'] },
+            'WebSite': { required: ['name', 'url'], recommended: [] },
+            'WebPage': { required: ['name'], recommended: ['description'] },
+            'Person': { required: ['name'], recommended: ['jobTitle', 'worksFor'] },
+            'BreadcrumbList': { required: ['itemListElement'], recommended: [] }
+        };
+
+        function missingProps(node, props) {
+            return props.filter(function (p) {
+                var v = get(node, p);
+                if (Array.isArray(v)) return v.length === 0;
+                if (typeof v === 'string') return v.trim() === '';
+                return v == null;
+            });
+        }
+
+        // ---- Simulated plain-language extraction per type ----
+        function simulateEntity(node, type) {
+            var offers = isObj(node.offers) ? node.offers : (Array.isArray(node.offers) ? node.offers[0] : null);
+            switch (type) {
+                case 'Product': {
+                    var bits = [];
+                    if (node.description) bits.push(truncate(node.description, 140));
+                    if (offers && offers.price) bits.push('Priced at ' + offers.price + (offers.priceCurrency ? ' ' + offers.priceCurrency : '') + (offers.availability ? ', ' + String(offers.availability).replace('https://schema.org/', '').replace('http://schema.org/', '') : ''));
+                    var rating = node.aggregateRating;
+                    if (isObj(rating) && rating.ratingValue) bits.push('Rated ' + rating.ratingValue + '/5' + (rating.reviewCount ? ' from ' + rating.reviewCount + ' reviews' : ''));
+                    if (node.brand) bits.push('Brand: ' + nameOf(node.brand));
+                    return '<strong>' + esc(node.name || '(unnamed product)') + '</strong> — ' + esc(bits.join('. ') || 'no further attributes found.');
+                }
+                case 'Article': case 'BlogPosting': case 'NewsArticle': {
+                    var abits = [];
+                    if (node.author) abits.push('by ' + nameOf(node.author));
+                    if (node.datePublished) abits.push('published ' + node.datePublished);
+                    if (node.publisher) abits.push('via ' + nameOf(node.publisher));
+                    return 'Headline: “' + esc(node.headline || '(no headline)') + '”' + (abits.length ? ' — ' + esc(abits.join(', ')) : '');
+                }
+                case 'FAQPage': {
+                    var qas = asArray(node.mainEntity).filter(isObj);
+                    if (!qas.length) return 'FAQPage declared but no usable Question entities found in mainEntity.';
+                    var html = '';
+                    qas.forEach(function (q) {
+                        var answer = get(q, 'acceptedAnswer.text') || '';
+                        html += '<div class="sim-qa"><div><strong>Q:</strong> ' + esc(q.name || '(no question text)') + '</div><div><strong>A:</strong> ' + esc(truncate(answer, 160) || '(no answer text)') + '</div></div>';
+                    });
+                    return 'Answer engine would likely surface these ' + qas.length + ' Q&amp;A pair(s) directly:' + html;
+                }
+                case 'HowTo': {
+                    var steps = asArray(node.step).filter(isObj);
+                    var stepNames = steps.map(function (s, i) { return (i + 1) + '. ' + (s.name || truncate(s.text, 60) || 'step'); });
+                    return '<strong>' + esc(node.name || '(unnamed process)') + '</strong> — ' + steps.length + ' step process' + (stepNames.length ? ': ' + esc(stepNames.join(' → ')) : '.');
+                }
+                case 'Organization': case 'LocalBusiness': {
+                    var obits = [];
+                    var addr = node.address;
+                    if (isObj(addr)) obits.push([addr.streetAddress, addr.addressLocality, addr.addressRegion].filter(Boolean).join(', '));
+                    if (node.telephone) obits.push('tel ' + node.telephone);
+                    if (node.sameAs) obits.push('profiles: ' + asArray(node.sameAs).length + ' linked');
+                    return '<strong>' + esc(node.name || '(unnamed entity)') + '</strong>' + (obits.length ? ' — ' + esc(obits.join('; ')) : '');
+                }
+                case 'Review': {
+                    var rv = node.reviewRating;
+                    var scoreStr = isObj(rv) && rv.ratingValue ? rv.ratingValue + (rv.bestRating ? '/' + rv.bestRating : '/5') : 'unrated';
+                    return nameOf(node.itemReviewed) ? esc(nameOf(node.itemReviewed)) + ' reviewed by ' + esc(nameOf(node.author) || 'unknown') + ': ' + esc(scoreStr) + (node.reviewBody ? ' — “' + esc(truncate(node.reviewBody, 120)) + '”' : '') : 'Review by ' + esc(nameOf(node.author) || 'unknown') + ': ' + esc(scoreStr);
+                }
+                case 'WebSite': {
+                    return '<strong>' + esc(node.name || '(unnamed site)') + '</strong>' + (node.url ? ' (' + esc(node.url) + ')' : '');
+                }
+                case 'Person': {
+                    var pbits = [];
+                    if (node.jobTitle) pbits.push(node.jobTitle);
+                    if (node.worksFor) pbits.push('at ' + nameOf(node.worksFor));
+                    return '<strong>' + esc(node.name || '(unnamed person)') + '</strong>' + (pbits.length ? ' — ' + esc(pbits.join(' ')) : '');
+                }
+                case 'BreadcrumbList': {
+                    var items = asArray(node.itemListElement).filter(isObj).sort(function (a, b) { return (a.position || 0) - (b.position || 0); });
+                    return 'Path: ' + esc(items.map(function (i) { return i.name || nameOf(i.item); }).join(' → ') || '(empty)');
+                }
+                default: {
+                    var keys = Object.keys(node).filter(function (k) { return k.indexOf('@') !== 0; }).slice(0, 8);
+                    if (!keys.length) return 'No extractable properties on this node.';
+                    return keys.map(function (k) { return '<strong>' + esc(k) + ':</strong> ' + esc(truncate(nameOf(node[k]) || JSON.stringify(node[k]), 80)); }).join('<br>');
+                }
+            }
+        }
+
+        function contentValues(node, type) {
+            var offers = isObj(node.offers) ? node.offers : (Array.isArray(node.offers) ? node.offers[0] : null);
+            var vals = [];
+            if (node.name) vals.push(node.name);
+            if (node.headline) vals.push(node.headline);
+            if (offers && offers.price) vals.push(String(offers.price));
+            var rating = node.aggregateRating;
+            if (isObj(rating) && rating.ratingValue) vals.push(String(rating.ratingValue));
+            return vals;
+        }
+
+        function run() {
+            var raw = schemaInput.value;
+            var contentText = contentInput.value.trim();
+            if (!raw.trim()) {
+                reportEl.innerHTML = '<div class="panel"><p class="error-msg">Paste some JSON-LD or page HTML first.</p></div>';
+                return;
+            }
+
+            var blocks = extractBlocks(raw);
+            var parsed = [];
+            var parseErrors = 0;
+
+            blocks.forEach(function (b) {
+                try {
+                    var data = JSON.parse(b);
+                    parsed.push(data);
+                } catch (e) {
+                    parseErrors++;
+                }
+            });
+
+            var checks = [];
+            checks.push({
+                name: 'JSON-LD parses without syntax errors',
+                pass: parseErrors === 0 && parsed.length > 0,
+                detail: parsed.length === 0
+                    ? 'Nothing parsed as valid JSON. Check for trailing commas, unescaped quotes, or missing braces.'
+                    : (parseErrors + '/' + blocks.length + ' block(s) failed to parse; ' + (blocks.length - parseErrors) + ' succeeded.')
+            });
+
+            if (parsed.length === 0) {
+                renderChecks(checks);
+                reportEl.innerHTML += '<div class="panel"><p class="error-msg">Can\'t run further checks or simulate extraction until at least one block parses as valid JSON.</p></div>';
+                return;
+            }
+
+            var hasSchemaOrgContext = parsed.some(function (d) {
+                var ctx = d['@context'];
+                return typeof ctx === 'string' && ctx.indexOf('schema.org') !== -1;
+            });
+            checks.push({
+                name: '@context declared as schema.org',
+                pass: hasSchemaOrgContext,
+                detail: hasSchemaOrgContext ? 'Found "schema.org" in @context.' : 'No block declares "@context": "https://schema.org" — some parsers won\'t treat this as valid Schema.org markup at all.'
+            });
+
+            var allNodes = [];
+            parsed.forEach(function (d) { flattenNodes(d).forEach(function (n) { allNodes.push(n); }); });
+
+            var recognizedNodes = allNodes.filter(function (n) {
+                return typesOf(n).some(function (t) { return SCHEMA_RULES.hasOwnProperty(t); });
+            });
+
+            checks.push({
+                name: 'Recognized entity type(s) found',
+                pass: recognizedNodes.length > 0,
+                detail: recognizedNodes.length > 0
+                    ? recognizedNodes.length + ' node(s) of a recognized type: ' + Array.from(new Set(recognizedNodes.flatMap(typesOf).filter(function (t) { return SCHEMA_RULES.hasOwnProperty(t); }))).join(', ')
+                    : 'No node matched a type this simulator validates (Product, Article, FAQPage, HowTo, Organization, LocalBusiness, Review, WebSite, Person, BreadcrumbList). Raw properties will still be shown below.'
+            });
+
+            // Required / recommended property checks, aggregated across recognized nodes
+            var missingRequiredDetails = [];
+            var missingRecommendedDetails = [];
+            recognizedNodes.forEach(function (node) {
+                typesOf(node).forEach(function (t) {
+                    var rules = SCHEMA_RULES[t];
+                    if (!rules) return;
+                    var label = node.name || node.headline || t;
+                    var missReq = missingProps(node, rules.required);
+                    if (missReq.length) missingRequiredDetails.push(t + ' "' + truncate(label, 40) + '": missing ' + missReq.join(', '));
+                    var missRec = missingProps(node, rules.recommended || []);
+                    if (missRec.length) missingRecommendedDetails.push(t + ' "' + truncate(label, 40) + '": missing ' + missRec.join(', '));
+                });
+            });
+
+            if (recognizedNodes.length > 0) {
+                checks.push({
+                    name: 'Required properties present',
+                    pass: missingRequiredDetails.length === 0,
+                    detail: missingRequiredDetails.length === 0 ? 'All recognized entities have their required schema.org properties.' : esc(missingRequiredDetails.join(' — '))
+                });
+                checks.push({
+                    name: 'Recommended properties present',
+                    pass: missingRecommendedDetails.length === 0,
+                    warnOnly: true,
+                    detail: missingRecommendedDetails.length === 0 ? 'No commonly-expected properties are missing.' : esc(missingRecommendedDetails.join(' — '))
+                });
+            }
+
+            // Duplicate/untagged entity conflict check
+            var byType = {};
+            recognizedNodes.forEach(function (node) {
+                typesOf(node).forEach(function (t) {
+                    if (!node['@id']) {
+                        byType[t] = (byType[t] || 0) + 1;
+                    }
+                });
+            });
+            var conflicts = Object.keys(byType).filter(function (t) { return byType[t] > 1; });
+            checks.push({
+                name: 'No untagged duplicate entities',
+                pass: conflicts.length === 0,
+                detail: conflicts.length === 0
+                    ? 'Each recognized type appears at most once without an @id.'
+                    : 'Multiple untagged ' + conflicts.join(', ') + ' entities found with no @id to disambiguate them — an answer engine has no reliable way to tell which one is this page\'s actual subject.'
+            });
+
+            // Content alignment check (only if page text provided)
+            if (contentText) {
+                var normContent = contentText.toLowerCase();
+                var unmatched = [];
+                recognizedNodes.forEach(function (node) {
+                    typesOf(node).forEach(function (t) {
+                        contentValues(node, t).forEach(function (v) {
+                            var vs = String(v).toLowerCase().trim();
+                            if (vs.length > 1 && normContent.indexOf(vs) === -1) {
+                                unmatched.push('"' + truncate(v, 40) + '" (from ' + t + ')');
+                            }
+                        });
+                    });
+                });
+                checks.push({
+                    name: 'Schema values appear in visible content',
+                    pass: unmatched.length === 0,
+                    detail: unmatched.length === 0
+                        ? 'Every checked schema value (name/headline/price/rating) was found somewhere in the pasted text.'
+                        : esc(unmatched.join(', ')) + ' not found in the pasted visible text — schema claiming facts absent from the page reads as manipulative to search engines and can produce answers a reader can\'t verify on the page itself.'
+                });
+            }
+
+            renderChecks(checks);
+            renderSimulation(recognizedNodes.length ? recognizedNodes : allNodes);
+        }
+
+        function renderChecks(checks) {
+            var scored = checks.filter(function (c) { return !c.warnOnly; });
+            var passed = scored.filter(function (c) { return c.pass; }).length;
+            var pct = scored.length ? Math.round((passed / scored.length) * 100) : 0;
+            var tier = pct >= 90 ? 'ok' : (pct >= 60 ? 'warn' : 'fail');
+            var tierLabel = pct >= 90 ? 'Clean' : (pct >= 60 ? 'Needs Attention' : 'Likely Misread');
+
+            var html = '';
+            html += '<div class="score-card ' + tier + '">';
+            html += '<div class="score-number">' + pct + '%</div>';
+            html += '<div class="score-label">' + esc(tierLabel) + '</div>';
+            html += '<div class="score-sub">' + passed + ' / ' + scored.length + ' structural checks passed</div>';
+            html += '</div>';
+
+            checks.forEach(function (c) {
+                var cls = c.warnOnly ? (c.pass ? 'pass' : 'warn') : (c.pass ? 'pass' : 'fail');
+                var icon = c.pass ? '✓' : (c.warnOnly ? '!' : '✕');
+                html += '<div class="check-row ' + cls + '">';
+                html += '<div class="check-icon">' + icon + '</div>';
+                html += '<div class="check-body"><strong>' + esc(c.name) + '</strong><span>' + c.detail + '</span></div>';
+                html += '</div>';
+            });
+
+            reportEl.innerHTML = html;
+        }
+
+        function renderSimulation(nodes) {
+            if (!nodes.length) return;
+            var html = '<h2 style="margin-top:32px;">Simulated extraction</h2>';
+            html += '<p class="sim-note">Rule-based approximation of the facts structurally available in your markup &mdash; not a live model call.</p>';
+            html += '<div class="sim-panel">';
+            nodes.forEach(function (node) {
+                var types = typesOf(node);
+                var primaryType = types.find(function (t) { return SCHEMA_RULES.hasOwnProperty(t); }) || types[0] || 'Unrecognized';
+                html += '<div class="sim-entity">';
+                html += '<div class="sim-entity-type">' + esc(primaryType) + '</div>';
+                html += '<p>' + simulateEntity(node, primaryType) + '</p>';
+                html += '</div>';
+            });
+            html += '</div>';
+            reportEl.innerHTML += html;
+        }
+
+        runBtn.addEventListener('click', run);
+    })();
+    </script>
+</body>
+</html>
