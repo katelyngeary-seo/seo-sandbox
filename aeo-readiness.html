@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Primary Metadata -->
+    <title>AEO Readiness // Answer Engine Score Card | SEO Sandbox</title>
+    <meta name="description" content="Live scorecard that checks a page's indexability, canonical hygiene, AI-crawler access, structured data, content substance and llms.txt coverage, and rolls it into a single AEO readiness score.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Indexing & Canonical -->
+    <link rel="canonical" href="https://www.seosandbox.dev/aeo-readiness">
+
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AEO Readiness // Answer Engine Score Card">
+    <meta property="og:description" content="Live scorecard that rolls up indexability, AI-crawler access, structured data and content signal checks into a single AEO readiness score.">
+    <meta property="og:url" content="https://www.seosandbox.dev/aeo-readiness">
+    <meta property="og:site_name" content="SEO Sandbox">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AEO Readiness // Answer Engine Score Card">
+    <meta name="twitter:description" content="Live scorecard that rolls up indexability, AI-crawler access, structured data and content signal checks into a single AEO readiness score.">
+
+    <!-- Structured Data (Schema.org Graph: WebPage, BreadcrumbList) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.seosandbox.dev/aeo-readiness#webpage",
+          "url": "https://www.seosandbox.dev/aeo-readiness",
+          "name": "AEO Readiness // Answer Engine Score Card",
+          "description": "Live scorecard that checks a page's indexability, canonical hygiene, AI-crawler access, structured data, content substance and llms.txt coverage, and rolls it into a single AEO readiness score.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://www.seosandbox.dev/#website",
+            "url": "https://www.seosandbox.dev/",
+            "name": "SEO Sandbox"
+          },
+          "breadcrumb": {
+            "@id": "https://www.seosandbox.dev/aeo-readiness#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.seosandbox.dev/aeo-readiness#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "home", "item": "https://www.seosandbox.dev/" },
+            { "@type": "ListItem", "position": 2, "name": "aeo-readiness", "item": "https://www.seosandbox.dev/aeo-readiness" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1f26;
+            --text-muted: #606f7b;
+            --accent-color: #ff5a36;
+            --ok-color: #0a7d3a;
+            --warn-color: #b7791f;
+            --fail-color: #c02626;
+            --border-color: #eff2f5;
+            --code-bg: #f8fafc;
+            --max-width: 760px;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
+        }
+        body {
+            line-height: 1.6;
+            max-width: var(--max-width);
+            margin: 40px auto;
+            padding: 0 20px 80px;
+            background-color: var(--bg-color);
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .site-header nav { display: flex; gap: 16px; flex-wrap: wrap; }
+        .site-header a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .site-header a:hover { text-decoration: underline; }
+        .breadcrumbs { display: flex; gap: 8px; margin-bottom: 24px; font-size: 0.95em; }
+        .breadcrumbs a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs span { color: var(--text-muted); font-weight: 500; }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--accent-color) !important;
+            margin-bottom: 1.25rem;
+        }
+        h1 { font-weight: 700; margin-top: 0; font-size: 1.75rem; letter-spacing: -0.02em; }
+        h2 { font-size: 1.05rem; margin-top: 36px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        p.lede { color: var(--text-muted); font-size: 0.95rem; max-width: 640px; }
+        main a { color: #0070f3; text-decoration: none; }
+        main a:hover { text-decoration: underline; }
+
+        .panel {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--code-bg);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+            border: 1px solid #d5dbe0;
+            border-radius: 4px;
+            background: #fff;
+            color: var(--text-color);
+        }
+        .run-btn {
+            margin-top: 16px;
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .run-btn:hover { background: #e14a28; }
+        .run-btn:disabled { background: #d5dbe0; cursor: wait; }
+
+        #report { margin-top: 28px; }
+
+        .score-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .score-card.ok { background: #f0f9f3; border-color: #bfe3cc; }
+        .score-card.warn { background: #fdf6e9; border-color: #f0dba8; }
+        .score-card.fail { background: #fbeceb; border-color: #f0bdb8; }
+        .score-number { font-size: 2.75rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+        .score-card.ok .score-number { color: var(--ok-color); }
+        .score-card.warn .score-number { color: var(--warn-color); }
+        .score-card.fail .score-number { color: var(--fail-color); }
+        .score-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+        .score-card.ok .score-label { color: var(--ok-color); }
+        .score-card.warn .score-label { color: var(--warn-color); }
+        .score-card.fail .score-label { color: var(--fail-color); }
+        .score-sub { font-size: 0.82rem; color: var(--text-muted); margin-top: 6px; }
+
+        .check-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            border-left: 3px solid var(--border-color);
+            padding: 10px 0 10px 1.25rem;
+            margin-bottom: 4px;
+        }
+        .check-row.pass { border-left-color: var(--ok-color); }
+        .check-row.fail { border-left-color: var(--fail-color); }
+        .check-icon { font-weight: 800; font-size: 0.95rem; width: 20px; flex-shrink: 0; }
+        .check-row.pass .check-icon { color: var(--ok-color); }
+        .check-row.fail .check-icon { color: var(--fail-color); }
+        .check-body strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
+        .check-body span { font-size: 0.82rem; color: var(--text-muted); word-break: break-word; }
+
+        .error-msg { color: var(--fail-color); font-size: 0.88rem; font-weight: 600; }
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="site-header">
+            <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
+            <nav aria-label="Main Navigation">
+                <a href="https://www.seosandbox.dev/about">/about</a>
+                <a href="https://www.seosandbox.dev/product">/product</a>
+                <a href="https://www.seosandbox.dev/post">/posts</a>
+                <a href="https://www.seosandbox.dev/crawler-lens">/crawler-lens</a>
+                <a href="https://www.seosandbox.dev/aeo-readiness">/aeo-readiness</a>
+            </nav>
+        </header>
+
+        <div class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="https://www.seosandbox.dev/">/home</a>
+            <span>/aeo-readiness</span>
+        </div>
+
+        <div class="status-badge">● Status: Live Experiment</div>
+        <h1>AEO Readiness Score</h1>
+        <p class="lede">Pick a page and this live-fetches its HTML, this site's <a href="/robots.txt">robots.txt</a> and <a href="/llms.txt">llms.txt</a>, then runs nine checks &mdash; indexability, canonical hygiene, AI-crawler access, structured data validity, title/description/H1 presence, content substance and llms.txt coverage &mdash; and rolls them into a single readiness score. Same honest, real-fetch approach as <a href="/crawler-lens">Crawler Lens</a>, no mocked results.</p>
+
+        <div class="panel">
+            <label for="page-select">Target page</label>
+            <select id="page-select"></select>
+            <button class="run-btn" id="run-btn">Run scorecard</button>
+        </div>
+
+        <div id="report"></div>
+
+        <h2>How the score works</h2>
+        <p class="lede" style="margin-top:-8px;">Each of the nine checks below is worth one point. <strong>AI-crawler access</strong> counts as a single check but is only awarded if every bot in the sample set (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Applebot-Extended) is allowed under this site's robots.txt for that path. 90%+ reads as Ready, 60&ndash;89% as Mostly Ready, below 60% as Needs Work. This is a hygiene checklist, not a ranking prediction &mdash; it says nothing about whether an answer engine will actually choose to cite the page.</p>
+
+        <footer>
+            // Built raw. Tracked transparently. 2026. // <a href="https://www.seosandbox.dev/sitemap">Sitemap</a>
+        </footer>
+    </main>
+
+    <script>
+    (function () {
+        var PAGES = [
+            { label: 'Home (/)', path: '/' },
+            { label: 'About (/about)', path: '/about' },
+            { label: 'Product Schema (/product)', path: '/product' },
+            { label: 'Posts Index (/post)', path: '/post' },
+            { label: 'Post: What do AI models think of each other?', path: '/post/what-ai-models-think-of-each-other' },
+            { label: 'Post: Here is What ChatGPT Thinks SEOs are Getting Wrong', path: '/post/here-is-what-chatgpt-thinks-seos-are-getting-wrong' },
+            { label: 'Sitemap (/sitemap)', path: '/sitemap' },
+            { label: 'Crawler Lens (/crawler-lens)', path: '/crawler-lens' }
+        ];
+
+        var SAMPLE_BOTS = ['GPTBot', 'ClaudeBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended'];
+        var MIN_WORDS = 100;
+
+        var pageSelect = document.getElementById('page-select');
+        var runBtn = document.getElementById('run-btn');
+        var reportEl = document.getElementById('report');
+
+        PAGES.forEach(function (p) {
+            var opt = document.createElement('option');
+            opt.value = p.path;
+            opt.textContent = p.label;
+            pageSelect.appendChild(opt);
+        });
+
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        function parseRobots(text) {
+            var lines = text.split('\n');
+            var rules = {};
+            var currentAgents = [];
+            var groupOpenForDirectives = false;
+
+            function ensure(agent) {
+                var key = agent.toLowerCase();
+                if (!rules[key]) rules[key] = { allow: [], disallow: [] };
+                return rules[key];
+            }
+
+            lines.forEach(function (raw) {
+                var line = raw.split('#')[0].trim();
+                if (!line) { groupOpenForDirectives = false; return; }
+                var m = line.match(/^([A-Za-z-]+)\s*:\s*(.*)$/);
+                if (!m) return;
+                var field = m[1].toLowerCase();
+                var value = m[2].trim();
+
+                if (field === 'user-agent') {
+                    if (groupOpenForDirectives) { currentAgents = [value]; groupOpenForDirectives = false; }
+                    else { currentAgents.push(value); }
+                } else if (field === 'allow') {
+                    currentAgents.forEach(function (a) { ensure(a).allow.push(value); });
+                    groupOpenForDirectives = true;
+                } else if (field === 'disallow') {
+                    currentAgents.forEach(function (a) { ensure(a).disallow.push(value); });
+                    groupOpenForDirectives = true;
+                }
+            });
+            return rules;
+        }
+
+        function longestMatch(list, path) {
+            var best = -1;
+            list.forEach(function (rule) {
+                if (rule === '') return;
+                if (path.indexOf(rule) === 0 && rule.length > best) best = rule.length;
+            });
+            return best;
+        }
+
+        function isAllowed(rules, botName, path) {
+            var key = botName.toLowerCase();
+            var set = rules[key] || rules['*'] || { allow: [], disallow: [] };
+            var allowLen = longestMatch(set.allow, path);
+            var disallowLen = longestMatch(set.disallow, path);
+            return disallowLen <= allowLen;
+        }
+
+        function extractSignals(html) {
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+
+            var title = doc.querySelector('title') ? doc.querySelector('title').textContent.trim() : '';
+            var descEl = doc.querySelector('meta[name="description"]');
+            var description = descEl ? (descEl.getAttribute('content') || '').trim() : '';
+            var robotsEl = doc.querySelector('meta[name="robots"]');
+            var robotsContent = robotsEl ? robotsEl.getAttribute('content') || '' : '';
+            var canonEl = doc.querySelector('link[rel="canonical"]');
+            var canonical = canonEl ? canonEl.getAttribute('href') : '';
+            var ogTitleEl = doc.querySelector('meta[property="og:title"]');
+            var ogTitle = ogTitleEl ? (ogTitleEl.getAttribute('content') || '').trim() : '';
+            var h1s = doc.querySelectorAll('h1');
+
+            var ldScripts = Array.prototype.slice.call(doc.querySelectorAll('script[type="application/ld+json"]'));
+            var jsonLdOk = 0, jsonLdTotal = ldScripts.length, hasTypedEntity = false;
+            ldScripts.forEach(function (s) {
+                try {
+                    var data = JSON.parse(s.textContent);
+                    jsonLdOk++;
+                    var nodes = data['@graph'] ? data['@graph'] : [data];
+                    nodes.forEach(function (n) { if (n && n['@type']) hasTypedEntity = true; });
+                } catch (e) { /* leave uncounted */ }
+            });
+
+            var clone = doc.cloneNode(true);
+            Array.prototype.slice.call(clone.querySelectorAll('script, style, noscript')).forEach(function (n) { n.remove(); });
+            var text = (clone.body ? clone.body.textContent : '').replace(/\s+/g, ' ').trim();
+            var wordCount = text ? text.split(' ').length : 0;
+
+            return {
+                title: title, description: description, robotsContent: robotsContent,
+                canonical: canonical, ogTitle: ogTitle, h1Count: h1s.length,
+                jsonLdTotal: jsonLdTotal, jsonLdOk: jsonLdOk, hasTypedEntity: hasTypedEntity,
+                wordCount: wordCount
+            };
+        }
+
+        function runChecks(path, signals, rules, llmsTxt) {
+            var checks = [];
+            var canonicalGuess = 'https://www.seosandbox.dev' + (path === '/' ? '/' : path);
+
+            checks.push({
+                name: 'Indexable',
+                pass: robotsContentAllowsIndex(signals.robotsContent),
+                detail: signals.robotsContent
+                    ? 'meta robots: "' + esc(signals.robotsContent) + '"'
+                    : 'No meta robots tag &mdash; defaults to index, follow.'
+            });
+
+            checks.push({
+                name: 'Canonical tag present',
+                pass: !!signals.canonical,
+                detail: signals.canonical ? esc(signals.canonical) : 'No &lt;link rel="canonical"&gt; found.'
+            });
+
+            var blockedBots = SAMPLE_BOTS.filter(function (b) { return !isAllowed(rules, b, path); });
+            checks.push({
+                name: 'AI-crawler access',
+                pass: blockedBots.length === 0,
+                detail: blockedBots.length === 0
+                    ? 'Allowed for: ' + esc(SAMPLE_BOTS.join(', ')) + '.'
+                    : 'Disallowed for: ' + esc(blockedBots.join(', ')) + '.'
+            });
+
+            checks.push({
+                name: 'Structured data present & valid',
+                pass: signals.jsonLdTotal > 0 && signals.jsonLdOk === signals.jsonLdTotal && signals.hasTypedEntity,
+                detail: signals.jsonLdTotal === 0
+                    ? 'No JSON-LD script blocks found.'
+                    : signals.jsonLdOk + '/' + signals.jsonLdTotal + ' JSON-LD block(s) parsed with a typed entity.'
+            });
+
+            checks.push({
+                name: 'Title tag present',
+                pass: signals.title.length > 0,
+                detail: signals.title ? '"' + esc(signals.title) + '" (' + signals.title.length + ' chars)' : 'No &lt;title&gt; content.'
+            });
+
+            checks.push({
+                name: 'Meta description present',
+                pass: signals.description.length > 0,
+                detail: signals.description ? esc(signals.description) : 'No meta description content.'
+            });
+
+            checks.push({
+                name: 'Single H1 heading',
+                pass: signals.h1Count === 1,
+                detail: signals.h1Count + ' &lt;h1&gt; element(s) found on the page.'
+            });
+
+            checks.push({
+                name: 'Sufficient content substance',
+                pass: signals.wordCount >= MIN_WORDS,
+                detail: signals.wordCount + ' visible words (threshold: ' + MIN_WORDS + ').'
+            });
+
+            var llmsHit = path === '/' ? true : (llmsTxt.indexOf(canonicalGuess) !== -1 || (signals.canonical && llmsTxt.indexOf(signals.canonical) !== -1));
+            checks.push({
+                name: 'llms.txt coverage',
+                pass: llmsHit,
+                detail: path === '/'
+                    ? 'Root domain is described in the llms.txt header.'
+                    : (llmsHit ? 'Page URL found in /llms.txt.' : 'Page URL not found in /llms.txt.')
+            });
+
+            return checks;
+        }
+
+        function robotsContentAllowsIndex(content) {
+            if (!content) return true;
+            return content.toLowerCase().indexOf('noindex') === -1;
+        }
+
+        function renderReport(path, checks, fetchError) {
+            if (fetchError) {
+                reportEl.innerHTML =
+                    '<div class="panel"><p class="error-msg">Scan failed: ' + esc(fetchError) +
+                    '</p><p class="score-sub">This tool needs same-origin HTTP access to robots.txt, the target page, and llms.txt. It will not work from a local file:// preview.</p></div>';
+                return;
+            }
+
+            var passed = checks.filter(function (c) { return c.pass; }).length;
+            var pct = Math.round((passed / checks.length) * 100);
+            var tier = pct >= 90 ? 'ok' : (pct >= 60 ? 'warn' : 'fail');
+            var tierLabel = pct >= 90 ? 'Ready' : (pct >= 60 ? 'Mostly Ready' : 'Needs Work');
+
+            var html = '';
+            html += '<div class="score-card ' + tier + '">';
+            html += '<div class="score-number">' + pct + '%</div>';
+            html += '<div class="score-label">' + esc(tierLabel) + '</div>';
+            html += '<div class="score-sub">' + passed + ' / ' + checks.length + ' checks passed for <strong>' + esc(path) + '</strong></div>';
+            html += '</div>';
+
+            checks.forEach(function (c) {
+                html += '<div class="check-row ' + (c.pass ? 'pass' : 'fail') + '">';
+                html += '<div class="check-icon">' + (c.pass ? '✓' : '✕') + '</div>';
+                html += '<div class="check-body"><strong>' + esc(c.name) + '</strong><span>' + c.detail + '</span></div>';
+                html += '</div>';
+            });
+
+            reportEl.innerHTML = html;
+        }
+
+        function run() {
+            var path = pageSelect.value;
+            runBtn.disabled = true;
+            runBtn.textContent = 'Scanning…';
+            reportEl.innerHTML = '<div class="panel"><p class="score-sub">Fetching robots.txt, page HTML and llms.txt from this origin…</p></div>';
+
+            Promise.all([
+                fetch('/robots.txt').then(function (r) { if (!r.ok) throw new Error('robots.txt → HTTP ' + r.status); return r.text(); }),
+                fetch(path).then(function (r) { if (!r.ok) throw new Error(path + ' → HTTP ' + r.status); return r.text(); }),
+                fetch('/llms.txt').then(function (r) { if (!r.ok) throw new Error('llms.txt → HTTP ' + r.status); return r.text(); })
+            ]).then(function (results) {
+                var rules = parseRobots(results[0]);
+                var signals = extractSignals(results[1]);
+                var checks = runChecks(path, signals, rules, results[2]);
+                renderReport(path, checks, null);
+            }).catch(function (err) {
+                renderReport(path, [], err.message);
+            }).finally(function () {
+                runBtn.disabled = false;
+                runBtn.textContent = 'Run scorecard';
+            });
+        }
+
+        runBtn.addEventListener('click', run);
+    })();
+    </script>
+</body>
+</html>
