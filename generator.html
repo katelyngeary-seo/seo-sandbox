@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Primary Metadata -->
+    <title>Content-Signal &amp; llms.txt Generator | SEO Sandbox</title>
+    <meta name="description" content="Free generator for two emerging AI-visibility standards: a robots.txt Content-Signal snippet (search / ai-input / ai-train) and a spec-correct llms.txt file, built live in your browser.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Indexing & Canonical -->
+    <link rel="canonical" href="https://www.seosandbox.dev/generator">
+
+    <!-- Open Graph / Social Media Metadata -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Content-Signal & llms.txt Generator">
+    <meta property="og:description" content="Free generator for a robots.txt Content-Signal snippet and a spec-correct llms.txt file, built live in your browser.">
+    <meta property="og:url" content="https://www.seosandbox.dev/generator">
+    <meta property="og:site_name" content="SEO Sandbox">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Content-Signal & llms.txt Generator">
+    <meta name="twitter:description" content="Free generator for a robots.txt Content-Signal snippet and a spec-correct llms.txt file, built live in your browser.">
+
+    <!-- Structured Data (Schema.org Graph: WebPage, BreadcrumbList) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.seosandbox.dev/generator#webpage",
+          "url": "https://www.seosandbox.dev/generator",
+          "name": "Content-Signal & llms.txt Generator",
+          "description": "Free generator for a robots.txt Content-Signal snippet and a spec-correct llms.txt file, built live in your browser.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://www.seosandbox.dev/#website",
+            "url": "https://www.seosandbox.dev/",
+            "name": "SEO Sandbox"
+          },
+          "breadcrumb": {
+            "@id": "https://www.seosandbox.dev/generator#breadcrumb"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.seosandbox.dev/generator#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "home", "item": "https://www.seosandbox.dev/" },
+            { "@type": "ListItem", "position": 2, "name": "generator", "item": "https://www.seosandbox.dev/generator" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1f26;
+            --text-muted: #606f7b;
+            --accent-color: #ff5a36;
+            --ok-color: #0a7d3a;
+            --border-color: #eff2f5;
+            --code-bg: #f8fafc;
+            --max-width: 780px;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: ui-monospace, SFMono-Regular, "SF Pro Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+            color: #1a1a1a;
+        }
+        body {
+            line-height: 1.6;
+            max-width: var(--max-width);
+            margin: 40px auto;
+            padding: 0 20px 80px;
+            background-color: var(--bg-color);
+        }
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .site-header nav { display: flex; gap: 16px; flex-wrap: wrap; }
+        .site-header a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .site-header a:hover { text-decoration: underline; }
+        .breadcrumbs { display: flex; gap: 8px; margin-bottom: 24px; font-size: 0.95em; }
+        .breadcrumbs a { color: #0070f3; text-decoration: none; font-weight: 500; }
+        .breadcrumbs a:hover { text-decoration: underline; }
+        .breadcrumbs span { color: var(--text-muted); font-weight: 500; }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            color: var(--accent-color) !important;
+            margin-bottom: 1.25rem;
+        }
+        h1 { font-weight: 700; margin-top: 0; font-size: 1.75rem; letter-spacing: -0.02em; }
+        h2 { font-size: 1.1rem; margin: 44px 0 6px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+        h3 { font-size: 0.95rem; margin: 20px 0 10px 0; }
+        p.lede { color: var(--text-muted); font-size: 0.95rem; }
+        p.section-note { color: var(--text-muted); font-size: 0.85rem; margin-top: -4px; }
+        main a { color: #0070f3; text-decoration: none; }
+        main a:hover { text-decoration: underline; }
+
+        .panel {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--code-bg);
+            padding: 20px;
+            margin-top: 16px;
+        }
+
+        /* Content-Signal toggles */
+        .signal-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .signal-row:last-child { border-bottom: none; }
+        .signal-name { font-weight: 700; font-size: 0.9rem; }
+        .signal-desc { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; max-width: 420px; }
+        .toggle-group { display: flex; border: 1px solid #d5dbe0; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+        .toggle-btn {
+            padding: 7px 14px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .toggle-btn.active.yes { background: var(--ok-color); color: #fff; }
+        .toggle-btn.active.no { background: var(--text-color); color: #fff; }
+        .toggle-btn + .toggle-btn { border-left: 1px solid #d5dbe0; }
+
+        /* Form fields */
+        label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 6px; font-weight: 600; }
+        input[type="text"], input[type="url"], textarea {
+            width: 100%;
+            padding: 9px 11px;
+            font-size: 0.85rem;
+            border: 1px solid #d5dbe0;
+            border-radius: 4px;
+            background: #fff;
+            color: var(--text-color);
+            margin-bottom: 12px;
+        }
+        textarea { resize: vertical; min-height: 60px; }
+
+        .section-block { border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; margin-bottom: 14px; background: #fff; }
+        .section-block-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .link-row { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 8px; margin-bottom: 8px; align-items: start; }
+        @media (max-width: 640px) { .link-row { grid-template-columns: 1fr; } }
+        .link-row input { margin-bottom: 0; }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 14px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: #fff;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn:hover { background: #e14a28; }
+        .btn.secondary { background: #fff; color: var(--text-color); border: 1px solid #d5dbe0; }
+        .btn.secondary:hover { background: #f1f3f5; }
+        .btn.small { padding: 6px 10px; font-size: 0.72rem; }
+        .btn.danger { background: #fff; color: var(--fail-color, #c02626); border: 1px solid #f0bdb8; }
+        .btn.danger:hover { background: #fbeceb; }
+        .btn-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+
+        pre.output {
+            background: #1a1f26;
+            color: #e6edf3;
+            border-radius: 6px;
+            padding: 16px;
+            font-size: 0.8rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            margin-top: 14px;
+        }
+        .copy-toast { font-size: 0.78rem; color: var(--ok-color); font-weight: 600; margin-top: 8px; display: none; }
+
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="site-header">
+            <a href="https://www.seosandbox.dev/"><strong>seo sandbox</strong></a>
+            <nav aria-label="Main Navigation">
+                <a href="https://www.seosandbox.dev/about">/about</a>
+                <a href="https://www.seosandbox.dev/product">/product</a>
+                <a href="https://www.seosandbox.dev/post">/posts</a>
+                <a href="https://www.seosandbox.dev/crawler-lens">/crawler-lens</a>
+                <a href="https://www.seosandbox.dev/aeo-readiness">/aeo-readiness</a>
+                <a href="https://www.seosandbox.dev/quiz">/quiz</a>
+                <a href="https://www.seosandbox.dev/generator">/generator</a>
+            </nav>
+        </header>
+
+        <div class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="https://www.seosandbox.dev/">/home</a>
+            <span>/generator</span>
+        </div>
+
+        <div class="status-badge">● Status: Live Experiment</div>
+        <h1>Content-Signal &amp; llms.txt Generator</h1>
+        <p class="lede">Two emerging AI-visibility standards, built live in your browser and copy-pasteable straight into your own site. Nothing here is fetched or sent anywhere &mdash; everything generates client-side from what you type.</p>
+
+        <h2>1. robots.txt Content-Signal snippet</h2>
+        <p class="section-note">Based on Cloudflare's <a href="https://contentsignals.org" target="_blank" rel="noopener noreferrer">Content Signals Policy</a> (built on the IETF AI Preferences draft). It's a voluntary, three-way declaration &mdash; separate from <code>Allow</code>/<code>Disallow</code> crawl access &mdash; that only affects crawlers choosing to honor it.</p>
+
+        <div class="panel">
+            <div class="signal-row">
+                <div>
+                    <div class="signal-name">search</div>
+                    <div class="signal-desc">Allow this content to be indexed and shown in search results.</div>
+                </div>
+                <div class="toggle-group" data-signal="search">
+                    <button class="toggle-btn yes" data-value="yes">Yes</button>
+                    <button class="toggle-btn no" data-value="no">No</button>
+                </div>
+            </div>
+            <div class="signal-row">
+                <div>
+                    <div class="signal-name">ai-input</div>
+                    <div class="signal-desc">Allow use as real-time input to AI answers &mdash; RAG, grounding, live citations.</div>
+                </div>
+                <div class="toggle-group" data-signal="aiInput">
+                    <button class="toggle-btn yes" data-value="yes">Yes</button>
+                    <button class="toggle-btn no" data-value="no">No</button>
+                </div>
+            </div>
+            <div class="signal-row">
+                <div>
+                    <div class="signal-name">ai-train</div>
+                    <div class="signal-desc">Allow use for training or fine-tuning AI models.</div>
+                </div>
+                <div class="toggle-group" data-signal="aiTrain">
+                    <button class="toggle-btn yes" data-value="yes">Yes</button>
+                    <button class="toggle-btn no" data-value="no">No</button>
+                </div>
+            </div>
+
+            <pre class="output" id="cs-output"></pre>
+            <div class="btn-row">
+                <button class="btn" id="cs-copy-btn">Copy snippet</button>
+            </div>
+            <div class="copy-toast" id="cs-toast">Copied — paste this into your robots.txt.</div>
+        </div>
+
+        <h2>2. llms.txt file</h2>
+        <p class="section-note">Follows the <a href="https://llmstxt.org" target="_blank" rel="noopener noreferrer">llms.txt spec</a>: an H1 site name, a one-paragraph blockquote summary, then H2 sections of markdown links. A section titled <strong>Optional</strong> gets special meaning &mdash; models skip it first when short on context.</p>
+
+        <div class="panel">
+            <label for="site-name">Site / project name (H1)</label>
+            <input type="text" id="site-name" placeholder="e.g. Acme Analytics">
+
+            <label for="site-summary">One-paragraph summary (blockquote)</label>
+            <textarea id="site-summary" placeholder="What this site or project is, in one paragraph."></textarea>
+
+            <div id="sections-container"></div>
+
+            <div class="btn-row">
+                <button class="btn secondary small" id="add-section-btn">+ Add section</button>
+            </div>
+
+            <pre class="output" id="llms-output"></pre>
+            <div class="btn-row">
+                <button class="btn" id="llms-copy-btn">Copy llms.txt</button>
+            </div>
+            <div class="copy-toast" id="llms-toast">Copied — save this as /llms.txt at your domain root.</div>
+        </div>
+
+        <h3>Don't forget the discovery tag</h3>
+        <p class="section-note">The 2026 llms.txt v2 update added a discovery link tag — this exact sandbox uses it on every page. Add it to your <code>&lt;head&gt;</code>:</p>
+        <pre class="output" id="discovery-output"></pre>
+
+        <footer>
+            // Built raw. Tracked transparently. 2026. // <a href="https://www.seosandbox.dev/sitemap">Sitemap</a>
+        </footer>
+    </main>
+
+    <script>
+    (function () {
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+            });
+        }
+
+        /* ---------- Content-Signal builder ---------- */
+        var csState = { search: 'yes', aiInput: 'yes', aiTrain: 'no' };
+        var csOutput = document.getElementById('cs-output');
+
+        function renderCS() {
+            Array.prototype.slice.call(document.querySelectorAll('.toggle-group')).forEach(function (group) {
+                var key = group.getAttribute('data-signal');
+                Array.prototype.slice.call(group.querySelectorAll('.toggle-btn')).forEach(function (btn) {
+                    btn.classList.toggle('active', btn.getAttribute('data-value') === csState[key]);
+                });
+            });
+            csOutput.textContent =
+                'User-agent: *\n' +
+                'Allow: /\n\n' +
+                'Content-Signal: search=' + csState.search + ', ai-input=' + csState.aiInput + ', ai-train=' + csState.aiTrain;
+        }
+
+        Array.prototype.slice.call(document.querySelectorAll('.toggle-group .toggle-btn')).forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var key = btn.parentElement.getAttribute('data-signal');
+                csState[key] = btn.getAttribute('data-value');
+                renderCS();
+            });
+        });
+
+        document.getElementById('cs-copy-btn').addEventListener('click', function () {
+            copyText(csOutput.textContent, document.getElementById('cs-toast'));
+        });
+
+        renderCS();
+
+        /* ---------- llms.txt builder ---------- */
+        var llmsState = {
+            siteName: '',
+            summary: '',
+            sections: [
+                { title: 'Docs', links: [{ title: '', url: '', desc: '' }] },
+                { title: 'Optional', links: [{ title: '', url: '', desc: '' }] }
+            ]
+        };
+
+        var sectionsContainer = document.getElementById('sections-container');
+        var llmsOutput = document.getElementById('llms-output');
+        var siteNameInput = document.getElementById('site-name');
+        var siteSummaryInput = document.getElementById('site-summary');
+
+        function renderSections() {
+            var html = '';
+            llmsState.sections.forEach(function (section, sIdx) {
+                html += '<div class="section-block" data-sidx="' + sIdx + '">';
+                html += '<div class="section-block-header">';
+                html += '<input type="text" class="section-title-input" data-sidx="' + sIdx + '" placeholder="Section title (H2)" value="' + esc(section.title) + '" style="max-width:260px; margin-bottom:0;">';
+                html += '<button class="btn danger small remove-section-btn" data-sidx="' + sIdx + '">Remove section</button>';
+                html += '</div>';
+
+                section.links.forEach(function (link, lIdx) {
+                    html += '<div class="link-row" data-sidx="' + sIdx + '" data-lidx="' + lIdx + '">';
+                    html += '<input type="text" class="link-title-input" placeholder="Link title" value="' + esc(link.title) + '">';
+                    html += '<input type="url" class="link-url-input" placeholder="https://example.com/page" value="' + esc(link.url) + '">';
+                    html += '<input type="text" class="link-desc-input" placeholder="Short description">';
+                    html += '<button class="btn danger small remove-link-btn">&times;</button>';
+                    html += '</div>';
+                });
+                html += '<button class="btn secondary small add-link-btn" data-sidx="' + sIdx + '">+ Add link</button>';
+                html += '</div>';
+            });
+            sectionsContainer.innerHTML = html;
+
+            // Restore description values (kept out of the value= attr above to dodge quote-escaping edge cases)
+            Array.prototype.slice.call(sectionsContainer.querySelectorAll('.link-row')).forEach(function (row) {
+                var sIdx = parseInt(row.getAttribute('data-sidx'), 10);
+                var lIdx = parseInt(row.getAttribute('data-lidx'), 10);
+                row.querySelector('.link-desc-input').value = llmsState.sections[sIdx].links[lIdx].desc;
+            });
+
+            wireSectionEvents();
+            renderLlmsOutput();
+        }
+
+        function wireSectionEvents() {
+            Array.prototype.slice.call(sectionsContainer.querySelectorAll('.section-title-input')).forEach(function (input) {
+                input.addEventListener('input', function () {
+                    llmsState.sections[parseInt(input.getAttribute('data-sidx'), 10)].title = input.value;
+                    renderLlmsOutput();
+                });
+            });
+            Array.prototype.slice.call(sectionsContainer.querySelectorAll('.remove-section-btn')).forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    llmsState.sections.splice(parseInt(btn.getAttribute('data-sidx'), 10), 1);
+                    renderSections();
+                });
+            });
+            Array.prototype.slice.call(sectionsContainer.querySelectorAll('.add-link-btn')).forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    llmsState.sections[parseInt(btn.getAttribute('data-sidx'), 10)].links.push({ title: '', url: '', desc: '' });
+                    renderSections();
+                });
+            });
+            Array.prototype.slice.call(sectionsContainer.querySelectorAll('.link-row')).forEach(function (row) {
+                var sIdx = parseInt(row.getAttribute('data-sidx'), 10);
+                var lIdx = parseInt(row.getAttribute('data-lidx'), 10);
+                row.querySelector('.link-title-input').addEventListener('input', function (e) {
+                    llmsState.sections[sIdx].links[lIdx].title = e.target.value;
+                    renderLlmsOutput();
+                });
+                row.querySelector('.link-url-input').addEventListener('input', function (e) {
+                    llmsState.sections[sIdx].links[lIdx].url = e.target.value;
+                    renderLlmsOutput();
+                });
+                row.querySelector('.link-desc-input').addEventListener('input', function (e) {
+                    llmsState.sections[sIdx].links[lIdx].desc = e.target.value;
+                    renderLlmsOutput();
+                });
+                row.querySelector('.remove-link-btn').addEventListener('click', function () {
+                    llmsState.sections[sIdx].links.splice(lIdx, 1);
+                    renderSections();
+                });
+            });
+        }
+
+        function renderLlmsOutput() {
+            var name = llmsState.siteName.trim() || 'Your Site Name';
+            var summary = llmsState.summary.trim() || 'A one-paragraph summary of what this site or project is.';
+            var md = '# ' + name + '\n\n> ' + summary + '\n';
+
+            llmsState.sections.forEach(function (section) {
+                var validLinks = section.links.filter(function (l) { return l.title.trim() && l.url.trim(); });
+                if (!validLinks.length) return;
+                md += '\n## ' + (section.title.trim() || 'Section') + '\n';
+                validLinks.forEach(function (l) {
+                    md += '- [' + l.title.trim() + '](' + l.url.trim() + ')' + (l.desc.trim() ? ': ' + l.desc.trim() : '') + '\n';
+                });
+            });
+
+            llmsOutput.textContent = md.trim() + '\n';
+        }
+
+        document.getElementById('add-section-btn').addEventListener('click', function () {
+            llmsState.sections.push({ title: '', links: [{ title: '', url: '', desc: '' }] });
+            renderSections();
+        });
+
+        siteNameInput.addEventListener('input', function () { llmsState.siteName = siteNameInput.value; renderLlmsOutput(); });
+        siteSummaryInput.addEventListener('input', function () { llmsState.summary = siteSummaryInput.value; renderLlmsOutput(); });
+
+        document.getElementById('llms-copy-btn').addEventListener('click', function () {
+            copyText(llmsOutput.textContent, document.getElementById('llms-toast'));
+        });
+
+        document.getElementById('discovery-output').textContent =
+            '<link rel="alternate" type="text/markdown" href="https://yourdomain.com/llms.txt">';
+
+        function copyText(text, toastEl) {
+            function show() { toastEl.style.display = 'block'; setTimeout(function () { toastEl.style.display = 'none'; }, 3000); }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(show).catch(function () { window.prompt('Copy this text:', text); });
+            } else {
+                window.prompt('Copy this text:', text);
+            }
+        }
+
+        renderSections();
+    })();
+    </script>
+</body>
+</html>
